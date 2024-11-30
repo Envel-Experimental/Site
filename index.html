@@ -23,7 +23,7 @@
         <nav class="menu menu-simplified">
             <div class="menu-flex-container">
                 <a class="menu-logo" href="https://envel-experimental.github.io/Site">
-                    <span style="margin-left: 10px;">ФОКСФОРД ЛАУНЧЕР<span class="tree-emoji">🌳</span> СКАЧАТЬ</span>
+                    <span style="margin-left: 10px;">ФОКСФОРД ЛАУНЧЕР<span class="tree-emoji">🌳</span> ЗАГРУЗКА</span>
                 </a>
             </div>
         </nav>
@@ -118,6 +118,12 @@
             }
             return { name: "неизвестная система", linkKey: null };
         }
+
+        function redirectToHelpPage() {
+            setTimeout(function() {
+                window.location.href = "help.html";
+            }, 2000);
+        }
         
         document.addEventListener('DOMContentLoaded', () => {
             const osAge = checkOSAge();
@@ -138,11 +144,12 @@
                 if (data && os.linkKey && data[os.linkKey]) {
                     // Формируем кнопку для текущей ОС
                     const downloadForOS = `
-                        <a href="${data[os.linkKey]}" class="primary-button">
+                        <a href="${data[os.linkKey]}" class="primary-button" onclick="redirectToHelpPage()">
                             <i class="fab fa-${os.name === 'Windows' ? 'windows' : os.name === 'macOS' ? 'apple' : 'linux'}"></i> 
                             Скачать для ${os.name}
                         </a>
                     `;
+
                     // Вставляем кнопку на страницу
                     downloadSection.innerHTML = downloadForOS;
                 }
