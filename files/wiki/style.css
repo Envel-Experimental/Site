@@ -10,7 +10,7 @@ html[theme=light] {
     --block-border: none;
     --link-color: #333;
     --visited-link-color: #333;
-    --link-hover-color: #FFF;
+    --link-hover-color: #999; 
     --button-color: #FFF;
     --button-bg-color: #333;
     --button-disabled-bg-color: #DDD;
