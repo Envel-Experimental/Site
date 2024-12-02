@@ -159,3 +159,20 @@ html[theme="dark"] .menu-logo .tree-emoji {
     line-height: 1em;
     font-weight: 500;
 }
+
+.menu-simplified-right .d-button.button-black:hover {
+    color: gray;
+}
+
+
+.image-inline {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.image-inline img {
+    max-width: calc(65% - 5px);
+    height: auto;
+}
