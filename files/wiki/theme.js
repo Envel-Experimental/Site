@@ -35,3 +35,20 @@ checkbox.addEventListener('change', () => {
 
 // Initialize the theme on page load
 initializeTheme();
+
+
+function copyToClipboard(elementId) {
+    const codeElement = document.getElementById(elementId);
+    const textToCopy = codeElement.innerText || codeElement.textContent;
+    const parentElement = codeElement.parentElement;
+
+    navigator.clipboard.writeText(textToCopy).then(() => {
+        parentElement.classList.add('copied');
+
+        setTimeout(() => {
+            parentElement.classList.remove('copied');
+        }, 1000);
+    }).catch(err => {
+        console.error('Ошибка при копировании:', err);
+    });
+}
