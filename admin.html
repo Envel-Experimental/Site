@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="ru" theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фоксфорд Лаунчер - Руководство по эксплуатации</title>
+    <link rel="stylesheet" href="files/wiki/style.css">
+    <link rel="stylesheet" href="files/wiki/main.css">
+    <link rel="stylesheet" href="files/wiki/extra.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<main id="app">
+    <nav class="menu menu-simplified">
+        <div class="menu-flex-container">
+            <a class="menu-logo" href="index.html">
+                <span>ФОКСФОРД ЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+            </a>
+        </div>
+        <div class="menu-simplified-right">
+            <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Помощь</a>
+        </div>
+    </nav>
+
+    <div class="content doc">
+        <h2>💻 Руководство по эксплуатации для администраторов</h2>
+        
+        <h3>Смотрите видео-руководства:</h3>
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+            <div style="width: 180%; max-width: 800px;">
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/nBFPA1arCw4" 
+                        title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <p style="text-align: center; margin-top: 10px;">Видео 1: вводная часть по лаунчеру и репозиторию</p>
+            </div>
+            <div style="width: 180%; max-width: 800px;">
+                <iframe width="100%" height="450" src="https://www.youtube.com/embed/P0LRlSK_n5M" 
+                        title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                </iframe>
+                <p style="text-align: center; margin-top: 10px;">Видео 2: создание, изменение и работа с версиями</p>
+            </div>
+        </div>
+        
+
+        <h3>Nebula. Краткое руководство:</h3>
+        <ol>
+            <li>Скачайте Nebula через zip-архив с GitHub или с помощью Git.</li>
+            <li>Установите зависимости, выполнив в терминале следующую команду:
+                <div class="code-block">
+                    <pre><code id="npm-install-code">npm i</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('npm-install-code')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+            </li>
+            <li>Создайте файл <code>.env</code> со следующими значениями, затем измените их под свои нужды:
+                <div class="code-block">
+                    <pre><code id="env-file">
+JAVA_EXECUTABLE=C:\Program Files\Eclipse Adoptium\jdk-17.0.8.101-hotspot\bin\java.exe
+ROOT=C:\Users\Nikita\Documents\GitHub\launcher-20.1-dist
+BASE_URL=https://bitbucket.org/Enlar/foxford.bitbucket.io/raw/master/new/
+HELIOS_DATA_FOLDER=C:\Users\user\AppData\Roaming\Foxford
+                    </code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('env-file')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+                <p><b>Описание переменных:</b></p>
+                <ul>
+                    <li><code>JAVA_EXECUTABLE</code> — путь к файлу <code>java.exe</code>.</li>
+                    <li><code>ROOT</code> — путь к пустой папке, куда будут сохранены файлы Nebula.</li>
+                    <li><code>BASE_URL</code> — URL, который будет использоваться для загрузки файлов.</li>
+                    <li><code>HELIOS_DATA_FOLDER</code> — путь к папке, содержащей <code>distribution.json</code>, настройки и т.д.</li>
+                </ul>
+            </li>
+            <li>Создайте корневую папку дистрибутива, выполнив следующую команду:
+                <div class="code-block">
+                    <pre><code id="init-root-command">npm start -- init root</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('init-root-command')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+            </li>
+            <li>Создайте сервер с помощью команды <b>(ВНИМАНИЕ: ТОЛЬКО ДЛЯ НОВЫХ ПРОЕКТОВ, ДЛЯ СТАРЫХ - УЖЕ СОЗДАНО!!!)</b>:
+                <div class="code-block">
+                    <pre><code id="generate-server-command">node dist/index.js generate server [server name] [Minecraft Version e.g. 1.12.2] --forge [forge version e.g. 14.23.5.2859]</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('generate-server-command')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+                <p>Примеры:</p>
+                <div class="code-block">
+                    <pre><code id="generate-server-command">node dist/index.js generate server Programming 1.16.5 --fabric latest</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('generate-server-command')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+                <div class="code-block">
+                    <pre><code id="generate-server-command">node dist/index.js generate server Programming 1.20.1 --fabric latest</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('generate-server-command')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+            </li>
+            <li>Добавьте свои моды и библиотеки в папку <code>ROOT\servers\сервер</code>.</li>
+            <li>Сгенерируйте дистрибутив с помощью команды:
+                <div class="code-block">
+                    <pre><code id="generate-distro-command">npm start -- generate distro</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('generate-distro-command')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
+            </li>
+            <li>Загрузите сгенерированные файлы на ваш веб-сервер.</li>
+            <li>В лаунчере отредактируйте файл <code>app/assets/js/distromanager.js</code>, на 7 строке измените URL, чтобы он указывал на ваш <code>distribution.json</code>.</li>
+        </ol>
+    </div>
+
+
+
+    <div class="content doc">
+        <h3>Исходный код (кликабельно):</h3>
+        <table>
+            <thead>
+            <tr>
+                <th>Название</th>
+                <th>Описание</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td><a href="https://github.com/Envel-Experimental/HeliosLauncher/">Лаунчер</a></td>
+                <td>Основной репозиторий лаунчера с автоматическим сборщиком из видео 1-2
+                </td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/Envel-Experimental/Nebula">Nebula</a></td>
+                <td>Система сборки версий для лаунчера из видео 2</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/Envel-Experimental/Site">Сайт</a></td>
+                <td>Сайт https://envel-experimental.github.io/Site из видео 1</td>
+            </tr>
+            <tr>
+                <td><a href="https://github.com/Envel-Experimental/launcher-20.1-dist">Проект Nebula</a></td>
+                <td>Проект Nebula из видео 2, который используется в лаунчере со всеми модификациями и конфигурациями, то есть его ROOT или C:\Users\Nikita\Documents\GitHub\launcher-20.1-dist из видео 2</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</main>
+
+<footer class="footer" id="footer">
+    <div class="footer-left">
+        <a href="">foxford.ru</a> &nbsp;·&nbsp;
+        <a href="">Лаунчер.Администратору</a> &nbsp;·&nbsp;
+        <a href="">02.12.2024</a><br><br>
+        CC BY-SA
+    </div>
+    <div class="footer-right">
+        <label class="theme-switcher" for="checkbox">
+            <input checked="checked" id="checkbox" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</footer>
+
+<script src="files/wiki/theme.js"></script>
+</body>
+</html>
