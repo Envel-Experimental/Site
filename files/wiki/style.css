@@ -173,6 +173,6 @@ html[theme="dark"] .menu-logo .tree-emoji {
 }
 
 .image-inline img {
-    max-width: calc(65% - 5px);
+    max-width: calc(50% - 5px);
     height: auto;
 }
