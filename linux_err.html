@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru" theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фоксфорд Лаунчер - Исправление проблем на Linux</title>
+    <link rel="stylesheet" href="files/wiki/style.css">
+    <link rel="stylesheet" href="files/wiki/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<main id="app">
+    <nav class="menu menu-simplified">
+        <div class="menu-flex-container">
+            <a class="menu-logo" href="index.html">
+                <span>ФОКСФОРД ЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+            </a>
+        </div>
+        <div class="menu-simplified-right">
+            <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Помощь</a>
+        </div>
+    </nav>
+
+    <div class="content doc">
+        <h2>🐧 Исправление проблем на Linux</h2>
+    
+        <h3>1. Минимальные системные требования</h3>
+        <ul>
+            <li><strong>Графический API:</strong> OpenGL 3.3</li>
+            <li><strong>Графические карты:</strong></li>
+            <ul>
+                <li>INTEL Iris Graphics (выпущенные с 2019 года) или новее</li>
+                <li>AMD Radeon HD 7000 Series или новее</li>
+                <li>Для использования с графикой NVIDIA рекомендуется драйверы, поддерживающие OpenGL 3.3 или новее.</li>
+            </ul>
+            <li><strong>Оперативная память:</strong> 4 ГБ (рекомендуется 8 ГБ и более)</li>
+            <li>
+                <strong>Операционная система:</strong>
+                <ul>
+                    <li><strong>Поддерживаемые версии:</strong> Linux (дистрибутив с ядром 4.x и выше)</li>
+                    <li><strong>Архитектура:</strong> x64</li>
+                    <li>
+                        <strong>Java:</strong> Требуется установленная Java 17.
+                        <ul>
+                            <li>Для установки Java 17, выполни команду:</li>
+                            <div class="code-block">
+                                <pre><code id="java-install">sudo apt install openjdk-17-jdk</code></pre>
+                                <button class="copy-button" onclick="copyToClipboard('java-install')">
+                                    <i class="fas fa-copy"></i> Копировать
+                                </button>
+                            </div>
+                            <li>Проверь версию установленной Java командой:</li>
+                            <div class="code-block">
+                                <pre><code id="java-version">java -version</code></pre>
+                                <button class="copy-button" onclick="copyToClipboard('java-version')">
+                                    <i class="fas fa-copy"></i> Копировать
+                                </button>
+                            </div>
+                            <li>Для переключения между установленными версиями Java используй команду:</li>
+                            <div class="code-block">
+                                <pre><code id="update-java">sudo update-alternatives --config java</code></pre>
+                                <button class="copy-button" onclick="copyToClipboard('update-java')">
+                                    <i class="fas fa-copy"></i> Копировать
+                                </button>
+                            </div>
+                            <li>После выполнения этой команды, ты увидишь список доступных версий Java. Выбери нужную, введя соответствующий номер.</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>AppImage:</strong>
+                        <ul>
+                            <li>Для работы с лаунчером требуется поддержка формата AppImage. Убедись, что твоя система поддерживает запуск файлов этого формата.</li>
+                        </ul>
+                    </li>                    
+                    <li>
+                        <strong>Обновления:</strong>
+                        <ul>
+                            <li>Убедись, что все пакеты обновлены до последней версии. В зависимости от твоего дистрибутива используй соответствующую команду:</li>
+                            <ul>
+                                <li>Для дистрибутивов на базе Ubuntu/Debian используй:</li>
+                                <div class="code-block">
+                                    <pre><code id="update-ubuntu">sudo apt update && sudo apt upgrade</code></pre>
+                                    <button class="copy-button" onclick="copyToClipboard('update-ubuntu')">
+                                        <i class="fas fa-copy"></i> Копировать
+                                    </button>
+                                </div>
+                                <li>Для дистрибутивов на базе Fedora:</li>
+                                <div class="code-block">
+                                    <pre><code id="update-fedora">sudo dnf update</code></pre>
+                                    <button class="copy-button" onclick="copyToClipboard('update-fedora')">
+                                        <i class="fas fa-copy"></i> Копировать
+                                    </button>
+                                </div>
+                                <li>Для дистрибутивов на базе Arch Linux:</li>
+                                <div class="code-block">
+                                    <pre><code id="update-arch">sudo pacman -Syu</code></pre>
+                                    <button class="copy-button" onclick="copyToClipboard('update-arch')">
+                                        <i class="fas fa-copy"></i> Копировать
+                                    </button>
+                                </div>
+                            </ul>
+                        </ul>
+                    </li>
+                    
+                </ul>
+            </li>
+        </ul>
+        <p>Проще говоря, требуется оборудование, выпущенное после 2015 года, с установленными обновлениями и поддержкой AppImage.</p>
+    </div>
+    
+</main>
+
+<footer class="footer" id="footer">
+    <div class="footer-left">
+        <a href="">foxford.ru</a> &nbsp;·&nbsp;
+        <a href="">Лаунчер.Помощь</a> &nbsp;·&nbsp;
+        <a href="">02.12.2024</a><br><br>
+        CC BY-SA
+    </div>
+    <div class="footer-right">
+        <label class="theme-switcher" for="checkbox">
+            <input checked="checked" id="checkbox" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</footer>
+
+<script src="files/wiki/theme.js"></script>
+</body>
+</html>
