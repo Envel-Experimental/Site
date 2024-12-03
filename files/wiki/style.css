@@ -185,7 +185,7 @@ html[theme="dark"] .menu-logo .tree-emoji {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 10px;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 .code-block pre {
