@@ -216,12 +216,30 @@ html[theme="dark"] .menu-logo .tree-emoji {
     background-color: #0056b3;
 }
 
-.copied {
-    animation: flash 1s ease-in-out;
+html[theme=light] .copied {
+    animation: flash-light 1s ease-in-out;
     border-radius: 4px;
 }
 
-@keyframes flash {
+html[theme=dark] .copied {
+    animation: flash-dark 1s ease-in-out;
+    border-radius: 4px;
+}
+
+
+@keyframes flash-light {
+    0% {
+        background-color: transparent;
+    }
+    50% {
+        background-color: #282c35;
+    }
+    100% {
+        background-color: transparent;
+    }
+}
+
+@keyframes flash-dark {
     0% {
         background-color: transparent;
     }
