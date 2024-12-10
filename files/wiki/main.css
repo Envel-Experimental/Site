@@ -370,7 +370,7 @@ input[type=range]:focus::-ms-fill-upper {
 .footer {
     display: flex;
     justify-content: space-between;
-    margin: 200px auto 0;
+    margin: 150px auto 0;
 }
 .label, .label-title {
     display: inline-block;

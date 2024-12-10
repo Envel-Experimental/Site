@@ -75,28 +75,63 @@ html[theme="dark"] .menu-logo .tree-emoji {
 .download-buttons {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 30px;
-    margin-top: 30px;
+    align-items: stretch;
+    gap: 2%;
+    margin-top: 3%;
     flex-wrap: nowrap;
 }
 
 .download-buttons a {
     text-decoration: none;
-    font-size: 20px;
-    display: inline-flex;
-    align-items: center; 
+    font-size: 1.5vw;
+    display: flex;
+    align-items: center;
     justify-content: center;
     color: #ffffff;
-    min-width: 400px;
-    padding: 15px 30px;
+    flex: 1 1 auto;
+    min-width: 30vw;
+    max-width: 30vw;
+    padding: 4vh 5vw;
+    height: auto;
     border-radius: 10px;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
+    box-sizing: border-box;
+    min-height: 12vh;
+}
+
+.download-buttons a i, 
+.download-buttons a span {
+    display: inline-block;
+}
+
+@media (max-width: 1000px) {
+    .download-buttons a {
+        min-width: 40vw;
+        max-width: 40vw;
+    }
+}
+
+@media (max-width: 850px) {
+    .download-buttons {
+        flex-wrap: wrap;
+    }
+
+    .download-buttons a {
+        min-width: 45%;
+        max-width: 45%;
+    }
+}
+
+@media (max-width: 600px) {
+    .download-buttons a {
+        min-width: 100%;
+        max-width: 100%;
+    }
 }
 
 .download-buttons a i {
-    margin-right: 10px;  /* Отступ справа от иконки */
+    margin-right: 10px;
 }
 
 .download-buttons a:hover {
