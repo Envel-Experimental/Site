@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru" theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фоксфорд Лаунчер - РУКОВОДСТВО ТЕХНИЧЕСКОЙ ПОДДЕРЖКИ</title>
+    <link rel="stylesheet" href="files/wiki/style.css">
+    <link rel="stylesheet" href="files/wiki/main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<main id="app">
+    <nav class="menu menu-simplified">
+        <div class="menu-flex-container">
+            <a class="menu-logo" href="index.html">
+                <span>ФОКСФОРД ЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОДДЕРЖКА</span>
+            </a>
+        </div>
+        <div class="menu-simplified-right">
+            <a class="d-button button-black" href="support_main.html" style="margin-right: 10px;">ПОДДЕРЖКА-ГЛАВНАЯ</a>
+        </div>
+    </nav>
+
+    <div class="content doc">
+        <h2>💻 Какая информация необходима для передачи разработчику и исправлению багов</h2>
+        
+        <h3>Шаг 1: Открываем отладку комбинацией Ctrl + Shift + I и переходим на вкладку Console</h3>
+        <ol>
+            <img src="files/images/tsupport/1.jpg" height="300">
+            <li>Лаунчер работает на технологии, аналогичной Chrome. Нужен весь лог из консоли в текстовом виде.</li>
+        </ol>
+
+        <h3>Шаг 2: Обратите внимание на сообщение о краше игры, если оно есть.</h3>
+        <ol>
+            <img src="files/images/tsupport/2.jpg" width="800">
+            <li>Скопируйте .txt файл по этому пути себе на компьютер для передачи вместе с логом.</li>
+        </ol>
+    </div>
+
+    <div class="content doc">
+        <h2>ИСПРАВЛЕНИЕ ПРОБЛЕМЫ НА MACOS на M ПРОЦЕССОРАХ APPLE</h2>
+        
+        <h3>Проблема</h3>
+        <ol>
+            <li>Версия игры 1.16.5 не поддерживает ARM процессоры.</li>
+        </ol>
+
+        <h3>Вариант решения</h3>
+        <ol>
+            <li>Этот вариант решения не тестировался.</li>
+            <li>Сейчас используется Java ARM. Старые версии игры не поддерживают M процессоры. Нужно использовать Java x64 для того, чтобы сработала эмуляция rozetta. Следующий шаг предлагает конкретные действия для этого.</li>
+            <li>Скачайте JAVA x64 MacOS: https://adoptium.net/temurin/releases/?os=mac&arch=x64&package=jre&version=8</li>
+            <a class="d-button button-black" href="https://adoptium.net/temurin/releases/?os=mac&arch=x64&package=jre&version=8" style="margin-right: 10px;">СКАЧАТЬ JAVA x64 MacOS</a>
+            <li>Заходим в настройки лаунчера</li>
+            <img src="files/images/tsupport/3.jpg" height="300">
+            <li>Java</li>
+            <img src="files/images/tsupport/4.jpg" height="300">
+            <li>Выбираем исполняемый файл скачанной и установленной JAVA x64 MacOS. Он будет лежать по расположению java в bin\java</li>
+            <img src="files/images/tsupport/5.jpg" height="300">
+            <li>Запускаем игру</li>
+            <li>Информируйте о результате</li>
+        </ol>
+    </div>
+</main>
+
+<footer class="footer" id="footer">
+    <div class="footer-left">
+        <a href="">foxford.ru</a> &nbsp;·&nbsp;
+        <a href="">Лаунчер.Помощь</a> &nbsp;·&nbsp;
+        <a href="">02.12.2024</a><br><br>
+        CC BY-SA
+    </div>
+    <div class="footer-right">
+        <label class="theme-switcher" for="checkbox">
+            <input checked="checked" id="checkbox" type="checkbox">
+            <span class="slider round"></span>
+        </label>
+    </div>
+</footer>
+
+<script src="files/wiki/theme.js"></script>
+</body>
+</html>
