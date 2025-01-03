@@ -135,11 +135,11 @@
             const downloadSection = document.getElementById("download-section");
             const os = detectOS();
         
-            if (osAge !== null && osAge >= 10) {
+            /*if (osAge !== null && osAge >= 10) {
                 // Если возраст ОС определен и она устарела
                 window.location.href = "tooold.html";
                 return;
-            }
+            }*/
         
             osInfoElement.textContent = `Твоя операционная система: ${os.name}`;
         
