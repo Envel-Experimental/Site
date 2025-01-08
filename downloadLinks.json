@@ -1,6 +1,6 @@
 {
-    "windows": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12159379254/Foxford-setup-2.2.1.exe",
-    "mac": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12159379254/Foxford-setup-2.2.1-universal.dmg",
-    "linux": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12159379254/Foxford-setup-2.2.1.AppImage",
+    "windows": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12668930146/Foxford-setup-2.2.1.exe",
+    "mac": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12668930146/Foxford-setup-2.2.1-universal.dmg",
+    "linux": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-12668930146/Foxford-setup-2.2.1-x86_64.AppImage",
     "all": "https://github.com/Envel-Experimental/HeliosLauncher/releases/tag/release-12255882934"
 }
