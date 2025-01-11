@@ -65,6 +65,9 @@
             // Проверяем Windows
             if (/windows nt (\d+\.\d+)/.test(userAgent)) {
                 const version = parseFloat(userAgent.match(/windows nt (\d+\.\d+)/)[1]);
+                if (/win32|x86/i.test(userAgent)) {
+                    return false; // 32-битная версия Windows не поддерживается
+                }
                 return version >= 10; // Поддерживаются Windows 10 и 11
             }
     
