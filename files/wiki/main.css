@@ -363,6 +363,7 @@ input[type=range]:focus::-ms-fill-upper {
 }
 .footer, .menu {
     max-width: var(--max-content-width);
+    padding-bottom: 40px;
 }
 .content-description-left {
     text-align: left;
