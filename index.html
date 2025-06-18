@@ -74,8 +74,9 @@
             // Проверяем macOS
             if (/mac os x (\d+(\.\d+)?)/.test(userAgent)) {
                 const version = parseFloat(userAgent.match(/mac os x (\d+(\.\d+)?)/)[1]);
-                return version >= 11; // Поддерживаются macOS 11 и выше
+                return version >= 10; // поддерживаем все 10.x и выше
             }
+
 
             // Проверяем Android
             if (/android/i.test(userAgent)) {
