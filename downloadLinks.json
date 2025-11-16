@@ -1,6 +1,6 @@
 {
-    "windows": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-19311097742/Flauncher-setup-2.3.5-x64.exe",
-    "mac": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-19311097742/Flauncher-setup-2.3.5-universal.dmg",
-    "linux": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-19311097742/Flauncher-setup-2.3.5-x86_64.AppImage",
-    "all": "https://github.com/Envel-Experimental/HeliosLauncher/releases/tag/release-19311097742"
+    "windows": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-18045947929/Flauncher-setup-2.3.4-x64.exe",
+    "mac": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-18045947929/Flauncher-setup-2.3.4-universal.dmg",
+    "linux": "https://github.com/Envel-Experimental/HeliosLauncher/releases/download/release-18045947929/Flauncher-setup-2.3.4-x86_64.AppImage",
+    "all": "https://github.com/Envel-Experimental/HeliosLauncher/releases/tag/release-18045947929"
 }
