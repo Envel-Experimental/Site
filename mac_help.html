@@ -3,10 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ФЛАУНЧЕР - Инструкция по установке на MacOS</title>
+    <title>Установка на MacOS | ФЛАУНЧЕР</title>
+    
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🍎</text></svg>" rel="icon">
+
     <link rel="stylesheet" href="files/wiki/style.css">
     <link rel="stylesheet" href="files/wiki/main.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body { font-size: 18px; }
+        
+        .content.doc {
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Блоки шагов --- */
+        .step-card {
+            background: #fff;
+            border: 2px solid rgba(0,0,0,0.1);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+        }
+        [theme="dark"] .step-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .step-badge {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+        [theme="dark"] .step-badge { background: #fff; color: #000; }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Контейнер для картинок */
+        .step-img-container {
+            text-align: center;
+            margin-top: 20px;
+            background: rgba(0,0,0,0.03);
+            border-radius: 12px;
+            padding: 10px;
+        }
+        
+        /* Стили для 3 картинок в ряд */
+        .img-row {
+            display: flex;
+            justify-content: space-between; /* Распределить по ширине */
+            gap: 5px;
+        }
+        .img-row img {
+            width: 32%; /* Каждая картинка занимает треть */
+            height: auto; /* Высота подстраивается */
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .step-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            margin: 5px;
+        }
+
+        /* Цвета блоков */
+        .card-warning {
+            border-color: #ffccbc;
+            background: #fff5f2;
+        }
+        [theme="dark"] .card-warning { background: #3e2723; border-color: #d84315; }
+
+        .card-success {
+            border-color: #a5d6a7;
+            background: #e8f5e9;
+        }
+        [theme="dark"] .card-success { background: #1b5e20; border-color: #2e7d32; }
+
+        .card-gray {
+            border-color: #e0e0e0;
+            background: #f5f5f5;
+        }
+        [theme="dark"] .card-gray { background: #424242; border-color: #616161; }
+
+        /* Терминал */
+        .code-block {
+            background: #333;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            position: relative;
+            margin: 15px 0;
+            font-family: monospace;
+        }
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #fff;
+            color: #333;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+        }
+        .d-button {
+            display: inline-block;
+            text-decoration: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            background: #000;
+        }
+    </style>
 </head>
 <body>
 <main id="app">
@@ -17,63 +151,98 @@
             </a>
         </div>
         <div class="menu-simplified-right">
-            <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Помощь</a>
+            <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Назад</a>
         </div>
     </nav>
 
     <div class="content doc">
-        <h2>💻 Инструкция по установке ФЛАУНЧЕРа на MacOS</h2>
-        
-        <h3>Шаг 1: Попробуй установить приложение стандартным способом.
+        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Установка на MacOS 🍎</h1>
+        <p style="font-size: 1.2rem; color: #666; margin-bottom: 40px;">Следуй инструкции, если система ругается на безопасность.</p>
 
-        </h3>
-        <ol>
-            <li>Запусти скачанный файл.</li>
-            <img src="files/images/mac/1.webp" height="300">
-            <li>Установи приложение.</li>
-            <img src="files/images/mac/2.webp" height="300">
-            <li>Запусти и нажми «Открыть».</li>
-            <img src="files/images/mac/3.webp" height="300">
-        </ol>
-
-        <h3>Шаг 2: Опционально - для новых MacOS: Если приложение не запускается, разреши запуск из любого источника.</h3>
-        <ol>
-            <img src="files/images/mac/1.png" height="300">
-            <li>Открой приложение «Терминал». Для этого зайди в «Программы» и открой «Утилиты», затем выбери «Терминал».</li>
-            <li>В «Терминале» скопируй и вставь следующую команду:</li>
-            <div class="code-block">
-                <pre><code id="gatekeeper-code">sudo spctl --master-disable</code></pre>
-                <button class="copy-button" onclick="copyToClipboard('gatekeeper-code')">
-                    <i class="fas fa-copy"></i> Копировать
-                </button>
+        <div class="step-card">
+            <span class="step-badge">Шаг 1</span>
+            <div class="step-title">Стандартная установка</div>
+            <p>Попробуй установить как обычное приложение:</p>
+            <ol style="margin-left: 20px; line-height: 1.6;">
+                <li>Запусти скачанный файл.</li>
+                <li>Перетащи иконку в папку Applications (Программы).</li>
+                <li>Найди приложение в "Программах" и нажми "Открыть".</li>
+            </ol>
+            <div class="step-img-container">
+                <img src="files/images/mac/1.webp" alt="Запуск"  style="height: 280px;">
             </div>
-            <li>Нажми кнопку «Enter» на клавиатуре, затем введи свой пароль (не переживай, он не будет отображаться на экране).</li>
-            <li>После выполнения команды закрой «Терминал».</li>
-            <li>Запусти установленное приложение заново.</li>
+            <div class="step-img-container img-row">
+                <img src="files/images/mac/2.webp" alt="Установка">
+                <img src="files/images/mac/3.webp" alt="Открыть">
+            </div>
+        </div>
+
+        <div class="step-card card-warning" style="border-style: dashed;">
+            <span class="step-badge" style="background: #f57c00;">Если не открывается</span>
+            <div class="step-title"><i class="fas fa-shield-alt"></i> Разреши запуск в настройках</div>
+            <p>Если MacOS пишет, что "разработчик не установлен", сделай следующее:</p>
             
-            <p>Сложно? Посмотри видео:</p>
-            <img src="files/images/mac/4.webp" height="600">
-        </ol>
+            <ol style="margin-left: 20px; margin-top: 15px;">
+                <li>Зайди в <b>Системные настройки</b> (System Settings) ⚙️.</li>
+                <li>Перейди в раздел <b>Конфиденциальность и безопасность</b> (Privacy & Security).</li>
+                <li>Прокрути вниз до раздела "Безопасность".</li>
+                <li>Там будет сообщение про FLauncher. Нажми кнопку <b>"Подтвердить вход"</b> или <b>"Открыть все равно"</b> (Open Anyway).</li>
+                <li>В появившемся окне нажми "Открыть" и введи пароль от макбука.</li>
+            </ol>
+            
+            <div class="step-img-container">
+                 <img src="files/images/mac/1.png" class="step-img" style="max-height: 300px;">
+            </div>
+        </div>
 
-        <h3>Шаг 3: Запуск</h3>
-        <ol>
-            <li>В дальнейшем всегда запускай лаунчер через приложения</a>.</li>
-            <img src="files/images/mac/2.png">
-            <li>Полная видео-инструкция с момента запуска:</a></li>
-            <img src="files/images/launcher/1.webp">
-        </ol>
+        <div class="step-card card-gray">
+            <span class="step-badge" style="background: #616161;">Запасной вариант</span>
+            <div class="step-title" style="color: #424242; font-size: 1.3rem;">
+                <i class="fas fa-terminal"></i> Если настройки не помогли (Gatekeeper)
+            </div>
+            <p>Используй этот способ, только если способ выше не сработал.</p>
+            
+            <ol style="margin-left: 20px; margin-top: 10px; font-size: 0.95rem;">
+                <li>Открой <b>«Терминал»</b> (Программы -> Утилиты -> Терминал).</li>
+                <li>Скопируй и вставь команду:</li>
+                
+                <div class="code-block">
+                    <pre><code id="gatekeeper-code">sudo spctl --master-disable</code></pre>
+                    <button class="copy-button" onclick="copyToClipboard('gatekeeper-code')">
+                        <i class="fas fa-copy"></i> Копировать
+                    </button>
+                </div>
 
+                <li>Нажми <b>Enter</b>, введи пароль (он невидимый) и снова Enter.</li>
+                <li>Попробуй запустить приложение снова.</li>
+            </ol>
+             <p style="margin-top: 10px; font-weight: bold; font-size: 0.9rem;">Видео-инструкция:</p>
+             <img src="files/images/mac/4.webp" class="step-img" style="max-height: 300px;">
+        </div>
 
-        <h3>ВАЖНО: УСТРАНЕНИЕ ПРОБЛЕМ ЗАПУСКА</h3>
-        <ol>
-            <li>Мы знаем, что при запуске игры иногда может ничего не происходить при нажатии кнопки ИГРАТЬ на компьютерах с M процессорами</a>.</li>
-            <li>Пока мы решаем эту проблему, используй запасной вариант:</a></li>
-            <a class="d-button button-black" href="https://yadi.sk/i/GOY0s0nRp-5azA" style="margin-right: 10px;">ЗАПАСНОЙ ВАРИАНТ</a>
-            <li>Чтобы ссылки в инструкции нажимались, скачай ее себе на компьютер</a>.</li>
-            <li>Пожалуйста, сообщите, если у вас возникла проблема и используйте эту инструкцию</a>.</li>
-        </ol>
+        <div class="step-card card-success">
+            <span class="step-badge" style="background: #2e7d32;">Готово</span>
+            <div class="step-title" style="color: #1b5e20;">
+                <i class="fas fa-rocket"></i> Запуск
+            </div>
+            <p>В дальнейшем всегда запускай лаунчер через "Программы" (Applications).</p>
+            <div class="step-img-container">
+                <img src="files/images/mac/2.png" class="step-img" style="max-height: 150px;">
+            </div>
+        </div>
+        
+        <div class="step-card card-warning">
+            <span class="step-badge" style="background: #d32f2f;">Владельцам M1 / M2 / M3 / M4 / M5</span>
+            <div class="step-title" style="color: #d32f2f;">
+                <i class="fas fa-microchip"></i> Игра не стартует?
+            </div>
+            <p><b>Внимание:</b> Это касается только курса <b>"Введение в программирование 1.16.5"</b>.</p>
+            <p>Если при нажатии кнопки "ИГРАТЬ" ничего не происходит, скачайте специальную версию и запустите 1.16.5:</p>
+            <p style="margin-top: 15px;">
+                <a class="d-button button-black" href="http://legacylauncher.ru/" target="_blank">СКАЧАТЬ ЗАПАСНОЙ ВАРИАНТ</a>
+            </p>
+        </div>
 
-       
     </div>
 </main>
 
@@ -81,7 +250,7 @@
     <div class="footer-left">
         <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
         <a href="">Лаунчер.Помощь</a> &nbsp;·&nbsp;
-        <a href="">02.12.2024</a><br><br>
+        <a href="">23.12.2025</a><br><br>
         CC BY-SA
     </div>
     <div class="footer-right">
@@ -92,6 +261,16 @@
     </div>
 </footer>
 
+<script>
+    function copyToClipboard(elementId) {
+        var copyText = document.getElementById(elementId).innerText;
+        navigator.clipboard.writeText(copyText).then(function() {
+            alert("Команда скопирована!");
+        }, function(err) {
+            console.error('Ошибка копирования: ', err);
+        });
+    }
+</script>
 <script src="files/wiki/theme.js"></script>
 </body>
 </html>
