@@ -14,9 +14,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ГЛОБАЛЬНЫЙ РАЗМЕР ШРИФТА (ВСЁ КРУПНЕЕ) --- */
+        /* --- ГЛОБАЛЬНЫЙ РАЗМЕР ШРИФТА --- */
         body {
-            font-size: 18px; /* Базовый шрифт больше */
+            font-size: 18px;
         }
 
         .content.doc {
@@ -26,11 +26,10 @@
             padding: 20px;
         }
 
-        /* Увеличенные отступы и сетка */
         .help-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Карточки шире */
-            gap: 30px; /* Расстояние между карточками больше */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
             max-width: 1100px;
             margin: 40px auto; 
             justify-content: center;
@@ -39,16 +38,24 @@
         /* --- КАРТОЧКИ --- */
         .help-card {
             background: rgba(0, 0, 0, 0.03);
-            border: 2px solid rgba(0, 0, 0, 0.05); /* Рамка жирнее */
-            border-radius: 20px; /* Скругления больше */
-            padding: 30px; /* Внутри просторнее */
-            text-align: center; /* Детям проще читать по центру */
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
             transition: transform 0.2s, box-shadow 0.2s;
             position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             height: 100%;
+        }
+
+        /* СТИЛЬ АКТИВНОЙ КАРТОЧКИ (Правильный выбор) */
+        .help-card.active-card {
+            border: 4px solid #28a745 !important;
+            box-shadow: 0 0 30px rgba(40, 167, 69, 0.5); /* Зеленое свечение */
+            background: rgba(40, 167, 69, 0.05);
+            transform: translateY(-7px);
         }
 
         [theme="dark"] .help-card {
@@ -61,15 +68,23 @@
             box-shadow: 0 15px 30px rgba(0,0,0,0.15);
         }
 
-        /* Иконки в карточках - ОГРОМНЫЕ */
+        /* --- ИКОНКИ --- */
         .card-icon {
             font-size: 3.5rem;
             margin-bottom: 15px;
             display: block;
         }
 
+        /* Цвета иконок ОС */
+        .icon-win { color: #0078d7; }
+        .icon-mac { color: #555; }
+        .icon-linux { color: #333; }
+
+        [theme="dark"] .icon-mac { color: #ddd; }
+        [theme="dark"] .icon-linux { color: #eee; }
+
         .card-title {
-            font-size: 1.5rem; /* Заголовки крупные */
+            font-size: 1.5rem;
             font-weight: 800;
             margin-bottom: 10px;
         }
@@ -82,19 +97,18 @@
         }
         [theme="dark"] .card-desc { color: #aaa; }
 
-        /* --- КНОПКИ (ЖИРНЫЕ И БОЛЬШИЕ) --- */
+        /* --- КНОПКИ --- */
         .card-btn {
             display: block;
             text-align: center;
-            padding: 15px 20px; /* Кнопки высокие */
+            padding: 15px 20px;
             border-radius: 12px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.1rem; /* Текст в кнопке крупнее */
+            font-size: 1.1rem;
             transition: 0.2s;
         }
 
-        /* Цвета кнопок */
         .btn-install { background: #000; color: #fff; }
         .btn-install:hover { background: #333; transform: scale(1.02); }
         
@@ -114,7 +128,7 @@
             position: absolute;
             top: -15px;
             right: 50%;
-            transform: translateX(50%); /* По центру сверху */
+            transform: translateX(50%);
             background: #28a745;
             color: #fff;
             padding: 8px 16px;
@@ -126,7 +140,7 @@
             z-index: 10;
         }
 
-        /* --- ЗАГОЛОВКИ РАЗДЕЛОВ (БОЛЬШОЙ ОТСТУП) --- */
+        /* --- ЗАГОЛОВКИ --- */
         .section-header {
             margin-top: 160px;
             margin-bottom: 30px;
@@ -136,7 +150,6 @@
         }
         [theme="dark"] .section-header { color: #fff; }
 
-        /* Первый заголовок чуть меньше отступа */
         .first-header { margin-top: 20px; }
 
     </style>
@@ -158,14 +171,14 @@
     <div class="content doc">
         
         <h2 id="os-greeting" style="font-size: 2.2rem; margin-bottom: 10px;">Привет! 👋</h2>
-        <p style="font-size: 1.2rem; color: #666;">Давай настроим игру.</p>
+        <p style="font-size: 1.2rem; color: #666;">Игра скачана, давай её настроим.</p>
 
         <div class="section-header first-header">🚀 Как установить?</div>
         
         <div class="help-grid">
             <div class="help-card" id="inst-win">
                 <span class="sys-badge">Твой ПК ✅</span>
-                <i class="fab fa-windows card-icon" style="color: #0078d7;"></i>
+                <i class="fab fa-microsoft card-icon icon-win"></i>
                 <div class="card-title">Windows</div>
                 <div class="card-desc">Инструкция для обычного компьютера или ноутбука.</div>
                 <a href="win_help.html" class="card-btn btn-install">Открыть инструкцию</a>
@@ -173,7 +186,7 @@
 
             <div class="help-card" id="inst-mac">
                 <span class="sys-badge">Твой Mac ✅</span>
-                <i class="fab fa-apple card-icon" style="color: #555;"></i>
+                <i class="fab fa-apple card-icon icon-mac"></i>
                 <div class="card-title">macOS</div>
                 <div class="card-desc">Если у тебя MacBook, iMac или Mac Mini.</div>
                 <a href="mac_help.html" class="card-btn btn-install">Открыть инструкцию</a>
@@ -181,9 +194,9 @@
 
             <div class="help-card" id="inst-linux">
                 <span class="sys-badge">Твой Linux ✅</span>
-                <i class="fab fa-linux card-icon" style="color: #fca311;"></i>
+                <i class="fab fa-linux card-icon icon-linux"></i>
                 <div class="card-title">Linux</div>
-                <div class="card-desc">Для продвинутых пользователей.</div>
+                <div class="card-desc">Для продвинутых пользователей с любым Linux.</div>
                 <a href="linux_help.html" class="card-btn btn-install">Открыть инструкцию</a>
             </div>
         </div>
@@ -194,7 +207,7 @@
 
         <div class="help-grid">
             <div class="help-card">
-                <i class="fab fa-windows card-icon" style="color: #f44336;"></i>
+                <i class="fab fa-microsoft card-icon" style="color: #f44336;"></i>
                 <div class="card-title">Ошибки Windows</div>
                 <div class="card-desc">Не запускается? Вылетает? Жми сюда.</div>
                 <a href="win_err.html" class="card-btn btn-fix">Починить Windows</a>
@@ -258,29 +271,36 @@
         const platform = navigator.platform.toLowerCase();
         const greeting = document.getElementById('os-greeting');
         let userOS = "";
+        let targetId = "";
 
-        // Сброс
+        // Сброс бейджей и состояний
         document.querySelectorAll('.sys-badge').forEach(el => el.style.display = 'none');
+        document.querySelectorAll('.help-card').forEach(el => el.classList.remove('active-card'));
 
-        // Определение
+        // Определение ОС
         if (platform.indexOf('win') !== -1) {
             userOS = "Windows";
-            document.querySelector('#inst-win .sys-badge').style.display = 'block';
-            document.getElementById('inst-win').style.borderColor = '#28a745';
+            targetId = "inst-win";
         } 
         else if (platform.indexOf('mac') !== -1) {
             userOS = "macOS";
-            document.querySelector('#inst-mac .sys-badge').style.display = 'block';
-            document.getElementById('inst-mac').style.borderColor = '#28a745';
+            targetId = "inst-mac";
         } 
         else if (platform.indexOf('linux') !== -1) {
             userOS = "Linux";
-            document.querySelector('#inst-linux .sys-badge').style.display = 'block';
-            document.getElementById('inst-linux').style.borderColor = '#28a745';
+            targetId = "inst-linux";
         }
 
-        if(userOS) {
+        // Применение эффектов
+        if(userOS && targetId) {
             greeting.innerHTML = `Привет! Вижу у тебя <b>${userOS}</b>`;
+            
+            const card = document.getElementById(targetId);
+            if(card) {
+                card.classList.add('active-card'); // Включаем свечение и жирную рамку
+                const badge = card.querySelector('.sys-badge');
+                if(badge) badge.style.display = 'block';
+            }
         }
     });
 </script>
