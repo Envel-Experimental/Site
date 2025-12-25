@@ -1,24 +1,113 @@
 <!DOCTYPE html>
-<html lang="en" theme="light">
+<html lang="ru" theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Скачать лаунчер ФЛАУНЧЕР">
     <title>Скачать лаунчер - ФЛАУНЧЕР</title>
 
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
-          rel="icon">
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>" rel="icon">
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <style>
         html, body {
             height: 100%;
             margin: 0;
+            font-family: sans-serif;
         }
+
+        /* Увеличение ширины основного контейнера */
+        .content.doc {
+            max-width: 1200px !important;
+            width: 95% !important;
+            margin: 0 auto;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
         .download-buttons a {
-            min-width: 38vw;
-            max-width: 38vw;
+            padding: 35px 60px; 
+            min-width: 400px;   
+            font-size: 1.6rem; 
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+        }
+
+        .primary-button {
+            background-color: #4285F4;
+            color: #fff !important;
+        }
+
+        .secondary-button {
+            background-color: #f8f9fa;
+            color: #3c4043 !important;
+            border: 2px solid #dadce0 !important;
+        }
+
+        /* Исправление видимости текста при наведении */
+        .secondary-button:hover {
+            background-color: #e8eaed !important;
+            color: #202124 !important;
+            border-color: #bdc1c6 !important;
+            transform: translateY(-8px) scale(1.03);
+        }
+
+        .download-buttons i {
+            color: inherit !important;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            background: none !important; 
+            -webkit-text-fill-color: initial !important;
+        }
+
+        .primary-button-glow {
+            box-shadow: 0 0 40px rgba(66, 133, 244, 0.9);
+            animation: pulse-blue-massive 2s infinite;
+        }
+
+        @keyframes pulse-blue-massive {
+            0% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.8), 0 0 30px rgba(66, 133, 244, 0.6);
+            }
+            70% {
+                box-shadow: 0 0 0 35px rgba(66, 133, 244, 0), 0 0 65px rgba(66, 133, 244, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0), 0 0 30px rgba(66, 133, 244, 0.6);
+            }
+        }
+
+        .primary-button:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 0 60px rgba(66, 133, 244, 1);
+        }
+
+        #os-info {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cent {
+            text-align: center;
         }
     </style>
 </head>
@@ -33,12 +122,11 @@
         </nav>
 
         <div class="content doc">
-            <h2 class="cent">Привет! Давай установим лаунчер!</h2>
-            <h2 id="os-info" class="cent">Определение твоей операционной системы...</h2>
+            <h2 class="cent" style="margin-top: 60px; font-size: 3rem;">Привет! Давай установим лаунчер!</h2>
+            <h2 id="os-info" class="cent" style="font-weight: normal; color: #666;">Определение твоей операционной системы...</h2>
 
             <div id="download-section" class="download-buttons">
-                <a href="all_list.html" class="secondary-button"><i class="fas fa-download"></i>Я выберу сам, покажи список</a>
-            </div>
+                 </div>
         </div>
     </main>
 
@@ -46,7 +134,7 @@
         <div class="footer-left">
             <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
             <a href="">Лаунчер.Главная</a> &nbsp;·&nbsp;
-            <a href="">30.11.2024</a><br><br>
+            <a href="">25.12.2025</a><br><br>
             CC BY-SA
         </div>
         <div class="footer-right">
@@ -58,66 +146,44 @@
     </footer>
 
     <script>
-        // Функция для проверки, является ли ОС поддерживаемой
         function isSupportedOS() {
             const userAgent = navigator.userAgent.toLowerCase();
-    
-            // Проверяем Windows
             if (/windows nt (\d+\.\d+)/.test(userAgent)) {
                 const version = parseFloat(userAgent.match(/windows nt (\d+\.\d+)/)[1]);
-                if (/win32|x86/i.test(userAgent)) {
-                    return false; // 32-битная версия Windows не поддерживается
-                }
-                return version >= 10; // Поддерживаются Windows 10 и 11
+                if (/win32|x86/i.test(userAgent)) return false;
+                return version >= 10;
             }
-    
-            // Проверяем macOS
             if (/mac os x (\d+(\.\d+)?)/.test(userAgent)) {
                 const version = parseFloat(userAgent.match(/mac os x (\d+(\.\d+)?)/)[1]);
-                return version >= 10; // поддерживаем все 10.x и выше
+                return version >= 10;
             }
-
-
-            // Проверяем Android
-            if (/android/i.test(userAgent)) {
-                return false; // Android не поддерживается
-            }
-    
-            // Проверяем Linux
-            if (/linux/i.test(userAgent)) {
-                return true; // Linux всегда поддерживается
-            }
-
-            // Проверяем iOS
-            if (/iphone|ipad|ipod/i.test(userAgent)) {
-                return false; // iOS не поддерживается
-            }
-    
-            return false; // Все остальные системы не поддерживаются
+            if (/android/i.test(userAgent)) return false;
+            if (/linux/i.test(userAgent)) return true;
+            if (/iphone|ipad|ipod/i.test(userAgent)) return false;
+            return false;
         }
     
-        // Функция для загрузки данных из JSON-файла
         function loadDownloadLinks() {
             return fetch('downloadLinks.json')
                 .then(response => response.json())
                 .catch(error => {
-                    console.error('Ошибка загрузки файла с ссылками:', error);
-                    return null;
+                    console.error('Ошибка:', error);
+                    return { windows: "#", mac: "#", linux: "#" };
                 });
         }
     
         function detectOS() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/win/i.test(userAgent)) {
-                return { name: "Windows", linkKey: "windows" };
+                return { name: "Windows", linkKey: "windows", icon: "fab fa-microsoft" };
             }
             if (/mac/i.test(userAgent)) {
-                return { name: "macOS", linkKey: "mac" };
+                return { name: "macOS", linkKey: "mac", icon: "fab fa-apple" };
             }
             if (/linux/i.test(userAgent)) {
-                return { name: "Linux", linkKey: "linux" };
+                return { name: "Linux", linkKey: "linux", icon: "fab fa-linux" };
             }
-            return { name: "неизвестная система", linkKey: null };
+            return { name: "неизвестная система", linkKey: null, icon: "fas fa-question" };
         }
     
         function redirectToHelpPage() {
@@ -132,40 +198,33 @@
             const os = detectOS();
     
             if (!isSupportedOS()) {
-                // Если ОС не поддерживается
-                window.location.href = "tooold.html";
+                osInfoElement.innerHTML = "Ваша система не поддерживается";
                 return;
             }
     
-            osInfoElement.textContent = `Твоя операционная система: ${os.name}`;
+            osInfoElement.innerHTML = `Твоя система: <b>${os.name}</b>`;
     
-            // Загружаем ссылки и формируем кнопки
             loadDownloadLinks().then(data => {
+                let htmlContent = "";
+
                 if (data && os.linkKey && data[os.linkKey]) {
-                    // Формируем кнопку для текущей ОС
-                    const downloadForOS = `
-                        <a href="${data[os.linkKey]}" class="primary-button" onclick="redirectToHelpPage()">
-                            <i class="fab fa-${os.name === 'Windows' ? 'windows' : os.name === 'macOS' ? 'apple' : 'linux'}"></i> 
+                    htmlContent += `
+                        <a href="${data[os.linkKey]}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
+                            <i class="${os.icon}"></i> 
                             Скачать для ${os.name}
                         </a>
                     `;
-    
-                    // Вставляем кнопку на страницу
-                    downloadSection.innerHTML = downloadForOS;
                 }
     
-                // Добавляем кнопку для выбора другой системы
-                const downloadOtherVersions = `
-                    <a href="all_list.html" class="secondary-button"><i class="fas fa-download"></i> Нет, скачать для другой системы</a>
+                htmlContent += `
+                    <a href="all_list.html" class="secondary-button"><i class="fas fa-list"></i> Другая версия</a>
                 `;
-                downloadSection.innerHTML += downloadOtherVersions;
+
+                downloadSection.innerHTML = htmlContent;
             });
         });
-
-        
     </script>    
         
-
     <script src="files/wiki/theme.js"></script>
 </body>
 </html>

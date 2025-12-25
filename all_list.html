@@ -6,15 +6,101 @@
     <meta name="description" content="Скачать лаунчер ФЛАУНЧЕР">
     <title>Скачать лаунчер - ФЛАУНЧЕР</title>
 
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
-          rel="icon">
+    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>" rel="icon">
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    
     <style>
-        html, body {
+        body {
+            font-size: 18px;
             height: 100%;
             margin: 0;
+            font-family: sans-serif;
+        }
+
+        .content.doc {
+            max-width: 1250px !important;
+            width: 95% !important;
+            margin: 0 auto;
+        }
+
+        .download-buttons {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .download-buttons a {
+            padding: 35px 60px; 
+            min-width: 400px;   
+            font-size: 1.6rem; 
+            font-weight: 800;
+            text-decoration: none;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+        }
+
+        .primary-button {
+            background-color: #4285F4;
+            color: #fff !important;
+        }
+
+        .secondary-button {
+            background-color: #f8f9fa;
+            color: #3c4043 !important;
+            border: 2px solid #dadce0 !important;
+        }
+
+        .secondary-button:hover {
+            background-color: #e8eaed !important;
+            color: #202124 !important;
+            border-color: #bdc1c6 !important;
+            transform: translateY(-5px);
+        }
+
+        .download-buttons i {
+            color: inherit !important;
+            margin-right: 20px;
+            font-size: 1.8rem;
+            background: none !important; 
+            -webkit-text-fill-color: initial !important;
+        }
+
+        .primary-button-glow {
+            box-shadow: 0 0 25px rgba(66, 133, 244, 0.5);
+        }
+
+        .primary-button:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(66, 133, 244, 0.6);
+        }
+
+        .cent {
+            text-align: center;
+        }
+
+        h2.cent:first-child {
+            margin-top: 60px;
+            font-size: 3rem;
+        }
+
+        #os-info {
+            font-weight: normal; 
+            color: #666; 
+            font-size: 1.5rem;
+            margin-bottom: 40px;
         }
     </style>
 </head>
@@ -27,7 +113,7 @@
                 </a>
             </div>
             <div class="menu-simplified-right">
-                <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Помощь</a>
+                <a class="d-button button-black" href="help.html">Помощь</a>
             </div>
         </nav>
 
@@ -36,11 +122,11 @@
             <h2 id="os-info" class="cent">Выбери свою операционную систему и скачай лаунчер</h2>
 
             <div id="download-section" class="download-buttons">
-                <!-- Сюда будут вставляться кнопки для скачивания -->
             </div>
-            <div class="download-buttons">
+            
+            <div class="download-buttons" style="margin-top: 50px;">
                 <a href="all.html" class="secondary-button">
-                    Открыть ещё варианты
+                    <i class="fas fa-plus-circle"></i> Открыть ещё варианты
                 </a>
             </div>
         </div>
@@ -50,8 +136,8 @@
     <footer class="footer" id="footer">
         <div class="footer-left">
             <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
-            <a href="">Лаунчер.Главная</a> &nbsp;·&nbsp;
-            <a href="">30.11.2024</a><br><br>
+            <a href="">Лаунчер.Выбор версии</a> &nbsp;·&nbsp;
+            <span>25.12.2025</span><br><br>
             CC BY-SA
         </div>
         <div class="footer-right">
@@ -69,31 +155,28 @@
             }, 2000);
         }
 
-        // Функция для загрузки данных из JSON-файла
         function loadDownloadLinks() {
             fetch('downloadLinks.json')
                 .then(response => response.json())
                 .then(data => {
                     const downloadSection = document.getElementById("download-section");
 
-                    // Создаем кнопки для каждой операционной системы
                     const windowsButton = `
-                        <a href="${data.windows}" class="primary-button" onclick="redirectToHelpPage()">
-                            <i class="fab fa-windows"></i> Скачать для Windows
+                        <a href="${data.windows}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
+                            <i class="fab fa-windows"></i> Windows
                         </a>
                     `;
                     const macButton = `
-                        <a href="${data.mac}" class="primary-button" onclick="redirectToHelpPage()">
-                            <i class="fab fa-apple"></i> Скачать для macOS
+                        <a href="${data.mac}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
+                            <i class="fab fa-apple"></i> macOS
                         </a>
                     `;
                     const linuxButton = `
-                        <a href="${data.linux}" class="primary-button" onclick="redirectToHelpPage()">
-                            <i class="fab fa-linux"></i> Скачать для Linux
+                        <a href="${data.linux}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
+                            <i class="fab fa-linux"></i> Linux
                         </a>
                     `;
 
-                    // Вставляем кнопки на страницу
                     downloadSection.innerHTML = windowsButton + macButton + linuxButton;
                 })
                 .catch(error => {
@@ -101,7 +184,6 @@
                 });
         }
 
-        // Загружаем ссылки после загрузки страницы
         document.addEventListener('DOMContentLoaded', loadDownloadLinks);
     </script>
 
