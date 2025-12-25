@@ -1,157 +1,195 @@
 <!DOCTYPE html>
-<html class=" izodjpo idc0_347" lang="ru" theme="light">
+<html lang="ru" theme="light">
 <head>
-    <meta content="text/html; charset=UTF-8" http-equiv="content-type">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Помощь | ФЛАУНЧЕР</title>
 
-    <meta charset="UTF-8">
-    <meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-    
     <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🆘</text></svg>" rel="icon">
-
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ГЛОБАЛЬНЫЙ РАЗМЕР ШРИФТА --- */
         body {
             font-size: 18px;
+            height: 100%;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        .menu.menu-simplified {
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .menu-simplified-right {
+            padding: 10px 20px !important;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
         }
 
         .content.doc {
             text-align: center;
-            max-width: 1200px;
+            max-width: 1250px !important;
+            width: 95% !important;
             margin: 0 auto;
-            padding: 20px;
+            padding: 10px 0;
         }
 
         .help-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
+            gap: 25px;
             max-width: 1100px;
-            margin: 40px auto; 
+            margin: 30px auto; 
             justify-content: center;
         }
 
-        /* --- КАРТОЧКИ --- */
         .help-card {
             background: rgba(0, 0, 0, 0.03);
             border: 2px solid rgba(0, 0, 0, 0.05);
-            border-radius: 20px;
-            padding: 30px;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
+            border-radius: 24px;
+            padding: 25px;
+            transition: all 0.3s ease;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            height: 100%;
+            min-height: 320px;
+            position: relative;
         }
 
-        /* СТИЛЬ АКТИВНОЙ КАРТОЧКИ (Правильный выбор) */
         .help-card.active-card {
-            border: 4px solid #28a745 !important;
-            box-shadow: 0 0 30px rgba(40, 167, 69, 0.5); /* Зеленое свечение */
-            background: rgba(40, 167, 69, 0.05);
-            transform: translateY(-7px);
+            border: 4px solid #4285F4 !important;
+            background: rgba(66, 133, 244, 0.04);
+            animation: pulse-blue-massive 2s infinite;
+        }
+
+        @keyframes pulse-blue-massive {
+            0% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7), 0 0 30px rgba(66, 133, 244, 0.4);
+            }
+            70% {
+                box-shadow: 0 0 0 30px rgba(66, 133, 244, 0), 0 0 65px rgba(66, 133, 244, 0.8);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(66, 133, 244, 0), 0 0 30px rgba(66, 133, 244, 0.4);
+            }
         }
 
         [theme="dark"] .help-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.1);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.08);
         }
 
         .help-card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
         }
 
-        /* --- ИКОНКИ --- */
         .card-icon {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             margin-bottom: 15px;
-            display: block;
         }
 
-        /* Цвета иконок ОС */
-        .icon-win { color: #0078d7; }
+        .icon-win { color: #4285F4; }
         .icon-mac { color: #555; }
         .icon-linux { color: #333; }
+        .icon-error { color: #f44336; }
 
         [theme="dark"] .icon-mac { color: #ddd; }
         [theme="dark"] .icon-linux { color: #eee; }
 
         .card-title {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 10px;
         }
 
         .card-desc {
-            font-size: 1rem;
-            color: #555;
-            margin-bottom: 25px;
+            font-size: 1.05rem;
+            color: #666;
+            margin-bottom: 20px;
             line-height: 1.4;
         }
         [theme="dark"] .card-desc { color: #aaa; }
 
-        /* --- КНОПКИ --- */
         .card-btn {
             display: block;
-            text-align: center;
-            padding: 15px 20px;
-            border-radius: 12px;
+            padding: 16px 20px;
+            border-radius: 16px;
             text-decoration: none;
-            font-weight: bold;
+            font-weight: 900;
             font-size: 1.1rem;
-            transition: 0.2s;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
-        .btn-install { background: #000; color: #fff; }
-        .btn-install:hover { background: #333; transform: scale(1.02); }
+        .btn-install { 
+            background: #000; 
+            color: #fff; 
+            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        }
+        .btn-install:hover { 
+            background: #333; 
+            transform: scale(1.03);
+        }
         
-        .btn-fix { background: #ffebee; color: #d32f2f; border: 2px solid #ffcdd2; }
-        .btn-fix:hover { background: #ffcdd2; }
+        .btn-fix { 
+            background: #f44336; 
+            color: #fff; 
+            border: none;
+            box-shadow: 0 8px 15px rgba(244, 67, 54, 0.2);
+        }
+        .btn-fix:hover { 
+            background: #d32f2f; 
+            transform: scale(1.03);
+        }
         
-        .btn-info { background: #e3f2fd; color: #1976d2; border: 2px solid #bbdefb; }
-        .btn-info:hover { background: #bbdefb; }
+        .btn-info { 
+            background: transparent; 
+            color: #4285F4; 
+            border: 3px solid #4285F4; 
+        }
+        .btn-info:hover { 
+            background: #4285F4; 
+            color: #fff;
+            transform: scale(1.03);
+        }
 
         [theme="dark"] .btn-install { background: #fff; color: #000; }
-        [theme="dark"] .btn-fix { background: #b71c1c; color: #fff; border: none; }
-        [theme="dark"] .btn-info { background: #0d47a1; color: #fff; border: none; }
 
-        /* Бейдж "Твой ПК" */
         .sys-badge {
             display: none;
             position: absolute;
-            top: -15px;
-            right: 50%;
-            transform: translateX(50%);
-            background: #28a745;
+            top: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #4285F4;
             color: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            font-weight: 900;
+            box-shadow: 0 8px 20px rgba(66, 133, 244, 0.4);
             white-space: nowrap;
             z-index: 10;
         }
 
-        /* --- ЗАГОЛОВКИ --- */
         .section-header {
-            margin-top: 160px;
-            margin-bottom: 30px;
-            font-size: 2rem;
+            margin-top: 150px;
+            margin-bottom: 40px;
+            font-size: 2.4rem;
             font-weight: 900;
             color: #222;
         }
         [theme="dark"] .section-header { color: #fff; }
 
-        .first-header { margin-top: 20px; }
-
+        .first-header { margin-top: 60px; }
     </style>
 </head>
 <body>
@@ -159,7 +197,7 @@
 <main id="app">
     <nav class="menu menu-simplified">
         <div class="menu-flex-container">
-            <a class="menu-logo" href="help.html">
+            <a class="menu-logo" href="index.html">
                 <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
             </a>
         </div>
@@ -170,89 +208,87 @@
 
     <div class="content doc">
         
-        <h2 id="os-greeting" style="font-size: 2.2rem; margin-bottom: 10px;">Привет! 👋</h2>
-        <p style="font-size: 1.2rem; color: #666;">Игра скачана, давай её настроим.</p>
+        <h2 id="os-greeting" style="font-size: 3.4rem; margin-top: 30px; margin-bottom: 15px; font-weight: 900;">Привет! 👋</h2>
+        <p style="font-size: 1.4rem; color: #666; margin-bottom: 50px;">Лаунчер скачан! Теперь давай его запустим.</p>
 
-        <div class="section-header first-header">🚀 Как установить?</div>
+        <div class="section-header first-header">🚀 Как запустить?</div>
         
         <div class="help-grid">
             <div class="help-card" id="inst-win">
-                <span class="sys-badge">Твой ПК ✅</span>
+                <span class="sys-badge">Твой компьютер ✅</span>
                 <i class="fab fa-microsoft card-icon icon-win"></i>
                 <div class="card-title">Windows</div>
-                <div class="card-desc">Инструкция для обычного компьютера или ноутбука.</div>
-                <a href="win_help.html" class="card-btn btn-install">Открыть инструкцию</a>
+                <div class="card-desc">Простая инструкция для обычных компьютеров.</div>
+                <a href="win_help.html" class="card-btn btn-install">Инструкция</a>
             </div>
 
             <div class="help-card" id="inst-mac">
                 <span class="sys-badge">Твой Mac ✅</span>
                 <i class="fab fa-apple card-icon icon-mac"></i>
                 <div class="card-title">macOS</div>
-                <div class="card-desc">Если у тебя MacBook, iMac или Mac Mini.</div>
-                <a href="mac_help.html" class="card-btn btn-install">Открыть инструкцию</a>
+                <div class="card-desc">Если у тебя компьютер или ноутбук от Apple.</div>
+                <a href="mac_help.html" class="card-btn btn-install">Инструкция</a>
             </div>
 
             <div class="help-card" id="inst-linux">
                 <span class="sys-badge">Твой Linux ✅</span>
                 <i class="fab fa-linux card-icon icon-linux"></i>
                 <div class="card-title">Linux</div>
-                <div class="card-desc">Для продвинутых пользователей с любым Linux.</div>
-                <a href="linux_help.html" class="card-btn btn-install">Открыть инструкцию</a>
+                <div class="card-desc">Гайд для тех, кто пользуется Linux.</div>
+                <a href="linux_help.html" class="card-btn btn-install">Инструкция</a>
             </div>
         </div>
 
-
-        <div class="section-header">😱 Не работает?</div>
-        <p style="font-size: 1.1rem; margin-bottom: 40px;">Выбери свою систему, и мы всё починим.</p>
-
+        <div class="section-header">😱 Ой, не работает?</div>
+        
         <div class="help-grid">
             <div class="help-card">
-                <i class="fab fa-microsoft card-icon" style="color: #f44336;"></i>
+                <i class="fab fa-microsoft card-icon icon-error"></i>
                 <div class="card-title">Ошибки Windows</div>
-                <div class="card-desc">Не запускается? Вылетает? Жми сюда.</div>
-                <a href="win_err.html" class="card-btn btn-fix">Починить Windows</a>
+                <div class="card-desc">Если игра выдаёт ошибку или не открывается.</div>
+                <a href="win_err.html" class="card-btn btn-fix">Починить</a>
             </div>
 
             <div class="help-card">
-                <i class="fab fa-apple card-icon" style="color: #f44336;"></i>
+                <i class="fab fa-apple card-icon icon-error"></i>
                 <div class="card-title">Ошибки macOS</div>
-                <div class="card-desc">Пишет "Файл поврежден" или просто не грузит?</div>
-                <a href="mac_err.html" class="card-btn btn-fix">Починить Mac</a>
+                <div class="card-desc">Если Mac пишет, что файл нельзя открыть.</div>
+                <a href="mac_err.html" class="card-btn btn-fix">Починить</a>
             </div>
 
             <div class="help-card">
-                <i class="fab fa-linux card-icon" style="color: #f44336;"></i>
+                <i class="fab fa-linux card-icon icon-error"></i>
                 <div class="card-title">Ошибки Linux</div>
-                <div class="card-desc">Проблемы с правами, Java или запуском.</div>
-                <a href="linux_err.html" class="card-btn btn-fix">Починить Linux</a>
+                <div class="card-desc">Решение проблем с запуском на Linux.</div>
+                <a href="linux_err.html" class="card-btn btn-fix">Починить</a>
             </div>
         </div>
 
-        <div class="section-header">🧐 Частые вопросы</div>
+        <div class="section-header">🧐 Другие вопросы</div>
 
-        <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
+        <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 400px));">
             <div class="help-card">
-                <i class="fas fa-shield-alt card-icon" style="color: #ff9800;"></i>
-                <div class="card-title">Это вирус?</div>
-                <div class="card-desc">Почему антивирус ругается и опасно ли это?</div>
-                <a href="vir_err.html" class="card-btn btn-info">Читать про безопасность</a>
+                <i class="fas fa-shield-alt card-icon" style="color: #4285F4;"></i>
+                <div class="card-title">Тут есть вирусы?</div>
+                <div class="card-desc">Узнай, почему лаунчер полностью безопасен.</div>
+                <a href="vir_err.html" class="card-btn btn-info">Про вирусы</a>
             </div>
 
             <div class="help-card">
-                <i class="fas fa-cubes card-icon" style="color: #9c27b0;"></i>
-                <div class="card-title">Версии и Моды</div>
-                <div class="card-desc">Как выбрать версию игры, сменить курс или поставить моды.</div>
-                <a href="ver_info.html" class="card-btn btn-info">Понятный гайд</a>
+                <i class="fas fa-cubes card-icon" style="color: #4285F4;"></i>
+                <div class="card-title">Смена версии</div>
+                <div class="card-desc">Руководство по смене версий / курсов.</div>
+                <a href="ver_info.html" class="card-btn btn-info">Интересно</a>
             </div>
         </div>
 
     </div>
 </main>
 
-<footer class="footer" id="footer" style="margin-top: 80px;">
+<footer class="footer" id="footer" style="margin-top: 100px;">
     <div class="footer-left">
         <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="help.html">Лаунчер.Помощь</a> &nbsp;·&nbsp;
+        <a href="help.html">Помощь</a> &nbsp;·&nbsp;
         <span>2025</span><br><br>
         CC BY-SA
     </div>
@@ -273,11 +309,6 @@
         let userOS = "";
         let targetId = "";
 
-        // Сброс бейджей и состояний
-        document.querySelectorAll('.sys-badge').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.help-card').forEach(el => el.classList.remove('active-card'));
-
-        // Определение ОС
         if (platform.indexOf('win') !== -1) {
             userOS = "Windows";
             targetId = "inst-win";
@@ -291,13 +322,12 @@
             targetId = "inst-linux";
         }
 
-        // Применение эффектов
         if(userOS && targetId) {
-            greeting.innerHTML = `Привет! Вижу у тебя <b>${userOS}</b>`;
+            greeting.innerHTML = `Вижу у тебя <b>${userOS}</b>`;
             
             const card = document.getElementById(targetId);
             if(card) {
-                card.classList.add('active-card'); // Включаем свечение и жирную рамку
+                card.classList.add('active-card');
                 const badge = card.querySelector('.sys-badge');
                 if(badge) badge.style.display = 'block';
             }
