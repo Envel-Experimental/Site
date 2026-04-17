@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html class=" izodjpo idc0_347" lang="ru" theme="light">
+
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <title>Установка Java 21 | ФЛАУНЧЕР</title>
 
     <meta charset="UTF-8">
     <meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-    
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>" rel="icon">
+
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☕</text></svg>"
+        rel="icon">
 
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
@@ -19,13 +22,13 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            
+
             /* Центрирование самого блока сетки */
             max-width: 1000px;
-            margin: 30px auto; 
-            
+            margin: 30px auto;
+
             /* Если карточек мало, центрируем их внутри сетки */
-            justify-content: center; 
+            justify-content: center;
         }
 
         /* Стиль карточки */
@@ -50,7 +53,7 @@
 
         .download-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         /* Иконки ОС */
@@ -59,7 +62,10 @@
             margin-bottom: 15px;
             color: #333;
         }
-        [theme="dark"] .os-icon { color: #eee; }
+
+        [theme="dark"] .os-icon {
+            color: #eee;
+        }
 
         .card-title {
             font-size: 1.25rem;
@@ -72,7 +78,10 @@
             color: #666;
             margin-bottom: 20px;
         }
-        [theme="dark"] .card-desc { color: #aaa; }
+
+        [theme="dark"] .card-desc {
+            color: #aaa;
+        }
 
         /* Кнопки */
         .dl-btn {
@@ -99,12 +108,19 @@
             border: 2px solid #000;
             color: #000;
         }
-        [theme="dark"] .dl-btn.secondary { border-color: #fff; color: #fff; }
+
+        [theme="dark"] .dl-btn.secondary {
+            border-color: #fff;
+            color: #fff;
+        }
 
         .dl-btn.secondary:hover {
-            background: rgba(0,0,0,0.05);
+            background: rgba(0, 0, 0, 0.05);
         }
-        [theme="dark"] .dl-btn.secondary:hover { background: rgba(255,255,255,0.1); }
+
+        [theme="dark"] .dl-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
 
         /* Бейдж "Рекомендуем" */
         .recommended-badge {
@@ -118,7 +134,7 @@
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
 
         /* Блок советов */
@@ -129,8 +145,10 @@
             margin-top: 40px;
             border-radius: 4px;
             font-size: 0.95rem;
-            text-align: left; /* Текст совета читается лучше слева */
+            text-align: left;
+            /* Текст совета читается лучше слева */
         }
+
         [theme="dark"] .info-box {
             background: rgba(33, 150, 243, 0.15);
             color: #fff;
@@ -140,110 +158,129 @@
         .content.doc {
             text-align: center;
         }
-        
+
         /* Адаптивность */
         @media (max-width: 600px) {
-            .menu-simplified { flex-direction: column; gap: 10px; padding: 10px; }
-            .download-grid { grid-template-columns: 1fr; }
+            .menu-simplified {
+                flex-direction: column;
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .download-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
+
 <body>
 
 
-<main id="app">
-    <nav class="menu menu-simplified">
-        <div class="menu-flex-container">
-            <a class="menu-logo" href="help.html">
-                <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
-            </a>
-        </div>
-        <div class="menu-simplified-right">
-            <a class="d-button button-black" href="index.html">Вернуться на главную</a>
-        </div>
-    </nav>
-
-    <div class="content doc" style="max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center;">
-        <h2>☕ Установка Java 21 (JRE)</h2>
-        <p>Для работы новых версий Minecraft требуется Java 21. Выберите вашу операционную систему ниже:</p>
-
-        <div class="download-grid">
-            
-            <div class="download-card" id="card-win">
-                <span class="recommended-badge" id="badge-win">Ваш выбор</span>
-                <i class="fab fa-windows os-icon" style="color: #0078d7;"></i>
-                <div class="card-title">Windows 10/11</div>
-                <div class="card-desc">Стандартный установщик для 64-битных систем.</div>
-                <a class="dl-btn" href="https://api.adoptium.net/v3/installer/latest/21/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk">
-                    <i class="fas fa-download"></i> Скачать установщик
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="help.html">
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
                 </a>
             </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="index.html">Вернуться на главную</a>
+            </div>
+        </nav>
 
-            <div class="download-card" id="card-mac">
-                <span class="recommended-badge" id="badge-mac">Ваш выбор</span>
-                <i class="fab fa-apple os-icon" style="color: #555;"></i>
-                <div class="card-title">macOS</div>
-                <div class="card-desc">Выберите тип процессора вашего Mac:</div>
-                
-                <a class="dl-btn secondary" href="https://api.adoptium.net/v3/installer/latest/21/ga/mac/x64/jre/hotspot/normal/eclipse?project=jdk" style="margin-bottom: 10px;">
-                    <i class="fas fa-microchip"></i> Intel (Старые Mac)
-                </a>
-                
-                <a class="dl-btn" href="https://api.adoptium.net/v3/installer/latest/21/ga/mac/aarch64/jre/hotspot/normal/eclipse?project=jdk">
-                    <i class="fas fa-bolt"></i> Apple Silicon (M1-M5 процессоры)
-                </a>
+        <div class="content doc" style="max-width: 1200px; margin: 0 auto; padding: 20px; text-align: center;">
+            <h2>☕ Установка Java 21 (JRE)</h2>
+            <p>Для работы новых версий Minecraft требуется Java 21. Выберите вашу операционную систему ниже:</p>
+
+            <div class="download-grid">
+
+                <div class="download-card" id="card-win">
+                    <span class="recommended-badge" id="badge-win">Ваш выбор</span>
+                    <i class="fab fa-windows os-icon" style="color: #0078d7;"></i>
+                    <div class="card-title">Windows 10/11</div>
+                    <div class="card-desc">Стандартный установщик для 64-битных систем.</div>
+                    <a class="dl-btn"
+                        href="https://api.adoptium.net/v3/installer/latest/21/ga/windows/x64/jre/hotspot/normal/eclipse?project=jdk">
+                        <i class="fas fa-download"></i> Скачать установщик
+                    </a>
+                </div>
+
+                <div class="download-card" id="card-mac">
+                    <span class="recommended-badge" id="badge-mac">Ваш выбор</span>
+                    <i class="fab fa-apple os-icon" style="color: #555;"></i>
+                    <div class="card-title">macOS</div>
+                    <div class="card-desc">Выберите тип процессора вашего Mac:</div>
+
+                    <a class="dl-btn secondary"
+                        href="https://api.adoptium.net/v3/installer/latest/21/ga/mac/x64/jre/hotspot/normal/eclipse?project=jdk"
+                        style="margin-bottom: 10px;">
+                        <i class="fas fa-microchip"></i> Intel (Старые Mac)
+                    </a>
+
+                    <a class="dl-btn"
+                        href="https://api.adoptium.net/v3/installer/latest/21/ga/mac/aarch64/jre/hotspot/normal/eclipse?project=jdk">
+                        <i class="fas fa-bolt"></i> Apple Silicon (M1-M5 процессоры)
+                    </a>
+                </div>
+
+                <div class="download-card">
+                    <i class="fab fa-linux os-icon" style="color: #fca311;"></i>
+                    <div class="card-title">Linux</div>
+                    <div class="card-desc">Инструкции по установке пакетов через терминал.</div>
+                    <a class="dl-btn secondary" href="linux_err.html">
+                        <i class="fas fa-book-open"></i> Читать инструкцию
+                    </a>
+                </div>
+
             </div>
 
-            <div class="download-card">
-                <i class="fab fa-linux os-icon" style="color: #fca311;"></i>
-                <div class="card-title">Linux</div>
-                <div class="card-desc">Инструкции по установке пакетов через терминал.</div>
-                <a class="dl-btn secondary" href="linux_err.html">
-                    <i class="fas fa-book-open"></i> Читать инструкцию
-                </a>
+            <div class="info-box">
+                <strong><i class="fas fa-info-circle"></i> Важно:</strong>
+                После установки Java обязательно <u>полностью закройте лаунчер</u> и запустите его заново, чтобы он
+                увидел новую версию.
             </div>
 
+            <p class="cent" style="margin-top: 50px; font-size: 0.9rem; color: #888;">
+                Устанавливая стороннее ПО, вы соглашаетесь с <a href="disclaimer.html"
+                    style="color: inherit; text-decoration: underline;">Отказом от ответственности</a>.
+            </p>
         </div>
 
-        <div class="info-box">
-            <strong><i class="fas fa-info-circle"></i> Важно:</strong> 
-            После установки Java обязательно <u>полностью закройте лаунчер</u> и запустите его заново, чтобы он увидел новую версию.
+    </main>
+
+    <footer class="footer" id="footer" style="margin-top: 50px;">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span>
         </div>
-    </div>
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
 
-</main>
+    <script src="files/wiki/theme.js"></script>
 
-<footer class="footer" id="footer" style="margin-top: 50px;">
-    <div class="footer-left">
-        <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="">Лаунчер.Помощь</a> &nbsp;·&nbsp;
-        <span>2024</span>
-    </div>
-    <div class="footer-right">
-        <label class="theme-switcher" for="checkbox">
-            <input checked="checked" id="checkbox" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-</footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const platform = navigator.platform.toLowerCase();
 
-<script src="files/wiki/theme.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const platform = navigator.platform.toLowerCase();
-        
-        if (platform.indexOf('win') !== -1) {
-            document.getElementById('badge-win').style.display = 'block';
-            document.getElementById('card-win').style.borderColor = '#28a745';
-            document.getElementById('card-win').style.borderWidth = '2px';
-        } else if (platform.indexOf('mac') !== -1) {
-            document.getElementById('badge-mac').style.display = 'block';
-            document.getElementById('card-mac').style.borderColor = '#28a745';
-            document.getElementById('card-mac').style.borderWidth = '2px';
-        }
-    });
-</script>
+            if (platform.indexOf('win') !== -1) {
+                document.getElementById('badge-win').style.display = 'block';
+                document.getElementById('card-win').style.borderColor = '#28a745';
+                document.getElementById('card-win').style.borderWidth = '2px';
+            } else if (platform.indexOf('mac') !== -1) {
+                document.getElementById('badge-mac').style.display = 'block';
+                document.getElementById('card-mac').style.borderColor = '#28a745';
+                document.getElementById('card-mac').style.borderWidth = '2px';
+            }
+        });
+    </script>
 
 </body>
+
 </html>

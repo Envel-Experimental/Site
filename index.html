@@ -1,18 +1,22 @@
 <!DOCTYPE html>
 <html lang="ru" theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Скачать лаунчер ФЛАУНЧЕР">
     <title>Скачать лаунчер - ФЛАУНЧЕР</title>
 
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>" rel="icon">
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+        rel="icon">
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    
+
     <style>
-        html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
             font-family: sans-serif;
@@ -36,9 +40,9 @@
         }
 
         .download-buttons a {
-            padding: 35px 60px; 
-            min-width: 400px;   
-            font-size: 1.6rem; 
+            padding: 35px 60px;
+            min-width: 400px;
+            font-size: 1.6rem;
             font-weight: 800;
             text-decoration: none;
             border-radius: 20px;
@@ -75,7 +79,7 @@
             color: inherit !important;
             margin-right: 20px;
             font-size: 1.8rem;
-            background: none !important; 
+            background: none !important;
             -webkit-text-fill-color: initial !important;
         }
 
@@ -88,9 +92,11 @@
             0% {
                 box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.8), 0 0 30px rgba(66, 133, 244, 0.6);
             }
+
             70% {
                 box-shadow: 0 0 0 35px rgba(66, 133, 244, 0), 0 0 65px rgba(66, 133, 244, 0.8);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(66, 133, 244, 0), 0 0 30px rgba(66, 133, 244, 0.6);
             }
@@ -111,6 +117,7 @@
         }
     </style>
 </head>
+
 <body>
     <main id="app">
         <nav class="menu menu-simplified">
@@ -123,18 +130,23 @@
 
         <div class="content doc">
             <h2 class="cent" style="margin-top: 60px; font-size: 3rem;">Привет! Давай установим лаунчер!</h2>
-            <h2 id="os-info" class="cent" style="font-weight: normal; color: #666;">Определение твоей операционной системы...</h2>
+            <h2 id="os-info" class="cent" style="font-weight: normal; color: #666;">Определение твоей операционной
+                системы...</h2>
 
             <div id="download-section" class="download-buttons">
-                 </div>
+            </div>
+            <p class="cent" style="margin-top: 30px; font-size: 0.9rem; color: #888;">
+                Осуществляя загрузку, вы выражаете безоговорочное согласие с <a href="disclaimer.html"
+                    style="color: inherit; text-decoration: underline;">Отказом от ответственности</a>.
+            </p>
         </div>
     </main>
 
     <footer class="footer" id="footer">
         <div class="footer-left">
-            <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
-            <a href="">Лаунчер.Главная</a> &nbsp;·&nbsp;
-            <a href="">25.12.2025</a><br><br>
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
             CC BY-SA
         </div>
         <div class="footer-right">
@@ -162,7 +174,7 @@
             if (/iphone|ipad|ipod/i.test(userAgent)) return false;
             return false;
         }
-    
+
         function loadDownloadLinks() {
             return fetch('downloadLinks.json')
                 .then(response => response.json())
@@ -171,7 +183,7 @@
                     return { windows: "#", mac: "#", linux: "#" };
                 });
         }
-    
+
         function detectOS() {
             const userAgent = navigator.userAgent || navigator.vendor || window.opera;
             if (/win/i.test(userAgent)) {
@@ -185,25 +197,25 @@
             }
             return { name: "неизвестная система", linkKey: null, icon: "fas fa-question" };
         }
-    
+
         function redirectToHelpPage() {
-            setTimeout(function() {
+            setTimeout(function () {
                 window.location.href = "help.html";
             }, 2000);
         }
-    
+
         document.addEventListener('DOMContentLoaded', () => {
             const osInfoElement = document.getElementById("os-info");
             const downloadSection = document.getElementById("download-section");
             const os = detectOS();
-    
+
             if (!isSupportedOS()) {
                 osInfoElement.innerHTML = "Ваша система не поддерживается";
                 return;
             }
-    
+
             osInfoElement.innerHTML = `Твоя система: <b>${os.name}</b>`;
-    
+
             loadDownloadLinks().then(data => {
                 let htmlContent = "";
 
@@ -215,7 +227,7 @@
                         </a>
                     `;
                 }
-    
+
                 htmlContent += `
                     <a href="all_list.html" class="secondary-button"><i class="fas fa-list"></i> Другая версия</a>
                 `;
@@ -223,8 +235,9 @@
                 downloadSection.innerHTML = htmlContent;
             });
         });
-    </script>    
-        
+    </script>
+
     <script src="files/wiki/theme.js"></script>
 </body>
+
 </html>

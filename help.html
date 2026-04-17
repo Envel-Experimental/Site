@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="ru" theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Помощь | ФЛАУНЧЕР</title>
 
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🆘</text></svg>" rel="icon">
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🆘</text></svg>"
+        rel="icon">
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
@@ -31,7 +34,7 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 340px));
             gap: 25px;
             max-width: 1100px;
-            margin: 30px auto; 
+            margin: 30px auto;
             justify-content: center;
         }
 
@@ -58,9 +61,11 @@
             0% {
                 box-shadow: 0 0 0 0 rgba(66, 133, 244, 0.7), 0 0 30px rgba(66, 133, 244, 0.4);
             }
+
             70% {
                 box-shadow: 0 0 0 30px rgba(66, 133, 244, 0), 0 0 65px rgba(66, 133, 244, 0.8);
             }
+
             100% {
                 box-shadow: 0 0 0 0 rgba(66, 133, 244, 0), 0 0 30px rgba(66, 133, 244, 0.4);
             }
@@ -73,7 +78,7 @@
 
         .help-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
         }
 
         .card-icon {
@@ -81,13 +86,29 @@
             margin-bottom: 15px;
         }
 
-        .icon-win { color: #4285F4; }
-        .icon-mac { color: #555; }
-        .icon-linux { color: #333; }
-        .icon-error { color: #f44336; }
+        .icon-win {
+            color: #4285F4;
+        }
 
-        [theme="dark"] .icon-mac { color: #ddd; }
-        [theme="dark"] .icon-linux { color: #eee; }
+        .icon-mac {
+            color: #555;
+        }
+
+        .icon-linux {
+            color: #333;
+        }
+
+        .icon-error {
+            color: #f44336;
+        }
+
+        [theme="dark"] .icon-mac {
+            color: #ddd;
+        }
+
+        [theme="dark"] .icon-linux {
+            color: #eee;
+        }
 
         .card-title {
             font-size: 1.6rem;
@@ -101,7 +122,10 @@
             margin-bottom: 20px;
             line-height: 1.4;
         }
-        [theme="dark"] .card-desc { color: #aaa; }
+
+        [theme="dark"] .card-desc {
+            color: #aaa;
+        }
 
         .card-btn {
             display: block;
@@ -115,39 +139,45 @@
             letter-spacing: 0.5px;
         }
 
-        .btn-install { 
-            background: #000; 
-            color: #fff; 
-            box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+        .btn-install {
+            background: #000;
+            color: #fff;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
         }
-        .btn-install:hover { 
-            background: #333; 
+
+        .btn-install:hover {
+            background: #333;
             transform: scale(1.03);
         }
-        
-        .btn-fix { 
-            background: #f44336; 
-            color: #fff; 
+
+        .btn-fix {
+            background: #f44336;
+            color: #fff;
             border: none;
             box-shadow: 0 8px 15px rgba(244, 67, 54, 0.2);
         }
-        .btn-fix:hover { 
-            background: #d32f2f; 
+
+        .btn-fix:hover {
+            background: #d32f2f;
             transform: scale(1.03);
         }
-        
-        .btn-info { 
-            background: transparent; 
-            color: #4285F4; 
-            border: 3px solid #4285F4; 
+
+        .btn-info {
+            background: transparent;
+            color: #4285F4;
+            border: 3px solid #4285F4;
         }
-        .btn-info:hover { 
-            background: #4285F4; 
+
+        .btn-info:hover {
+            background: #4285F4;
             color: #fff;
             transform: scale(1.03);
         }
 
-        [theme="dark"] .btn-install { background: #fff; color: #000; }
+        [theme="dark"] .btn-install {
+            background: #fff;
+            color: #000;
+        }
 
         .sys-badge {
             display: none;
@@ -173,153 +203,162 @@
             font-weight: 900;
             color: #222;
         }
-        [theme="dark"] .section-header { color: #fff; }
 
-        .first-header { margin-top: 60px; }
+        [theme="dark"] .section-header {
+            color: #fff;
+        }
+
+        .first-header {
+            margin-top: 60px;
+        }
     </style>
 </head>
+
 <body>
 
-<main id="app">
-    <nav class="menu menu-simplified">
-        <div class="menu-flex-container">
-            <a class="menu-logo" href="index.html">
-                <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
-            </a>
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="index.html">
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+                </a>
+            </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="index.html">На главную</a>
+            </div>
+        </nav>
+
+        <div class="content doc">
+
+            <h2 id="os-greeting" style="font-size: 3.4rem; margin-top: 30px; margin-bottom: 15px; font-weight: 900;">
+                Привет! 👋</h2>
+            <p style="font-size: 1.4rem; color: #666; margin-bottom: 50px;">Лаунчер скачан! Теперь давай его запустим.
+            </p>
+
+            <div class="section-header first-header">🚀 Как запустить?</div>
+
+            <div class="help-grid">
+                <div class="help-card" id="inst-win">
+                    <span class="sys-badge">Твой компьютер <i class="fas fa-check"></i></span>
+                    <i class="fab fa-microsoft card-icon icon-win"></i>
+                    <div class="card-title">Windows</div>
+                    <div class="card-desc">Простая инструкция для обычных компьютеров.</div>
+                    <a href="win_help.html" class="card-btn btn-install">Инструкция</a>
+                </div>
+
+                <div class="help-card" id="inst-mac">
+                    <span class="sys-badge">Твой Mac <i class="fas fa-check"></i></span>
+                    <i class="fab fa-apple card-icon icon-mac"></i>
+                    <div class="card-title">macOS</div>
+                    <div class="card-desc">Если у тебя компьютер или ноутбук от Apple.</div>
+                    <a href="mac_help.html" class="card-btn btn-install">Инструкция</a>
+                </div>
+
+                <div class="help-card" id="inst-linux">
+                    <span class="sys-badge">Твой Linux <i class="fas fa-check"></i></span>
+                    <i class="fab fa-linux card-icon icon-linux"></i>
+                    <div class="card-title">Linux</div>
+                    <div class="card-desc">Гайд для тех, кто пользуется Linux.</div>
+                    <a href="linux_help.html" class="card-btn btn-install">Инструкция</a>
+                </div>
+            </div>
+
+            <div class="section-header">😱 Ой, не работает?</div>
+
+            <div class="help-grid">
+                <div class="help-card">
+                    <i class="fab fa-microsoft card-icon icon-error"></i>
+                    <div class="card-title">Ошибки Windows</div>
+                    <div class="card-desc">Если игра выдаёт ошибку или не открывается.</div>
+                    <a href="win_err.html" class="card-btn btn-fix">Починить</a>
+                </div>
+
+                <div class="help-card">
+                    <i class="fab fa-apple card-icon icon-error"></i>
+                    <div class="card-title">Ошибки macOS</div>
+                    <div class="card-desc">Если Mac пишет, что файл нельзя открыть.</div>
+                    <a href="mac_err.html" class="card-btn btn-fix">Починить</a>
+                </div>
+
+                <div class="help-card">
+                    <i class="fab fa-linux card-icon icon-error"></i>
+                    <div class="card-title">Ошибки Linux</div>
+                    <div class="card-desc">Решение проблем с запуском на Linux.</div>
+                    <a href="linux_err.html" class="card-btn btn-fix">Починить</a>
+                </div>
+            </div>
+
+            <div class="section-header">🧐 Другие вопросы</div>
+
+            <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 400px));">
+                <div class="help-card">
+                    <i class="fas fa-shield-alt card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title">Тут есть вирусы?</div>
+                    <div class="card-desc">Узнай, почему лаунчер полностью безопасен.</div>
+                    <a href="vir_err.html" class="card-btn btn-info">Про вирусы</a>
+                </div>
+
+                <div class="help-card">
+                    <i class="fas fa-cubes card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title">Смена версии</div>
+                    <div class="card-desc">Руководство по смене версий / курсов.</div>
+                    <a href="ver_info.html" class="card-btn btn-info">Интересно</a>
+                </div>
+            </div>
+
         </div>
-        <div class="menu-simplified-right">
-            <a class="d-button button-black" href="index.html">На главную</a>
+    </main>
+
+    <footer class="footer" id="footer" style="margin-top: 100px;">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
+            CC BY-SA
         </div>
-    </nav>
-
-    <div class="content doc">
-        
-        <h2 id="os-greeting" style="font-size: 3.4rem; margin-top: 30px; margin-bottom: 15px; font-weight: 900;">Привет! 👋</h2>
-        <p style="font-size: 1.4rem; color: #666; margin-bottom: 50px;">Лаунчер скачан! Теперь давай его запустим.</p>
-
-        <div class="section-header first-header">🚀 Как запустить?</div>
-        
-        <div class="help-grid">
-            <div class="help-card" id="inst-win">
-                <span class="sys-badge">Твой компьютер <i class="fas fa-check"></i></span>
-                <i class="fab fa-microsoft card-icon icon-win"></i>
-                <div class="card-title">Windows</div>
-                <div class="card-desc">Простая инструкция для обычных компьютеров.</div>
-                <a href="win_help.html" class="card-btn btn-install">Инструкция</a>
-            </div>
-
-            <div class="help-card" id="inst-mac">
-                <span class="sys-badge">Твой Mac <i class="fas fa-check"></i></span>
-                <i class="fab fa-apple card-icon icon-mac"></i>
-                <div class="card-title">macOS</div>
-                <div class="card-desc">Если у тебя компьютер или ноутбук от Apple.</div>
-                <a href="mac_help.html" class="card-btn btn-install">Инструкция</a>
-            </div>
-
-            <div class="help-card" id="inst-linux">
-                <span class="sys-badge">Твой Linux <i class="fas fa-check"></i></span>
-                <i class="fab fa-linux card-icon icon-linux"></i>
-                <div class="card-title">Linux</div>
-                <div class="card-desc">Гайд для тех, кто пользуется Linux.</div>
-                <a href="linux_help.html" class="card-btn btn-install">Инструкция</a>
-            </div>
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
+    </footer>
 
-        <div class="section-header">😱 Ой, не работает?</div>
-        
-        <div class="help-grid">
-            <div class="help-card">
-                <i class="fab fa-microsoft card-icon icon-error"></i>
-                <div class="card-title">Ошибки Windows</div>
-                <div class="card-desc">Если игра выдаёт ошибку или не открывается.</div>
-                <a href="win_err.html" class="card-btn btn-fix">Починить</a>
-            </div>
+    <script src="files/wiki/theme.js"></script>
 
-            <div class="help-card">
-                <i class="fab fa-apple card-icon icon-error"></i>
-                <div class="card-title">Ошибки macOS</div>
-                <div class="card-desc">Если Mac пишет, что файл нельзя открыть.</div>
-                <a href="mac_err.html" class="card-btn btn-fix">Починить</a>
-            </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const agent = navigator.userAgent.toLowerCase();
+            const greeting = document.getElementById('os-greeting');
+            let userOS = "";
+            let targetId = "";
 
-            <div class="help-card">
-                <i class="fab fa-linux card-icon icon-error"></i>
-                <div class="card-title">Ошибки Linux</div>
-                <div class="card-desc">Решение проблем с запуском на Linux.</div>
-                <a href="linux_err.html" class="card-btn btn-fix">Починить</a>
-            </div>
-        </div>
-
-        <div class="section-header">🧐 Другие вопросы</div>
-
-        <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 400px));">
-            <div class="help-card">
-                <i class="fas fa-shield-alt card-icon" style="color: #4285F4;"></i>
-                <div class="card-title">Тут есть вирусы?</div>
-                <div class="card-desc">Узнай, почему лаунчер полностью безопасен.</div>
-                <a href="vir_err.html" class="card-btn btn-info">Про вирусы</a>
-            </div>
-
-            <div class="help-card">
-                <i class="fas fa-cubes card-icon" style="color: #4285F4;"></i>
-                <div class="card-title">Смена версии</div>
-                <div class="card-desc">Руководство по смене версий / курсов.</div>
-                <a href="ver_info.html" class="card-btn btn-info">Интересно</a>
-            </div>
-        </div>
-
-    </div>
-</main>
-
-<footer class="footer" id="footer" style="margin-top: 100px;">
-    <div class="footer-left">
-        <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="help.html">Помощь</a> &nbsp;·&nbsp;
-        <span>2025</span><br><br>
-        CC BY-SA
-    </div>
-    <div class="footer-right">
-        <label class="theme-switcher" for="checkbox">
-            <input checked="checked" id="checkbox" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-</footer>
-
-<script src="files/wiki/theme.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const agent = navigator.userAgent.toLowerCase();
-        const greeting = document.getElementById('os-greeting');
-        let userOS = "";
-        let targetId = "";
-
-        if (agent.includes('mac')) {
-            userOS = "macOS";
-            targetId = "inst-mac";
-        } 
-        else if (agent.includes('win')) {
-            userOS = "Windows";
-            targetId = "inst-win";
-        } 
-        else if (agent.includes('linux') || agent.includes('x11')) {
-            userOS = "Linux";
-            targetId = "inst-linux";
-        }
-
-        if(userOS && targetId) {
-            greeting.innerHTML = `Вижу у тебя <b>${userOS}</b>`;
-            
-            const card = document.getElementById(targetId);
-            if(card) {
-                card.classList.add('active-card');
-                const badge = card.querySelector('.sys-badge');
-                if(badge) badge.style.display = 'block';
+            if (agent.includes('mac')) {
+                userOS = "macOS";
+                targetId = "inst-mac";
             }
-        }
-    });
-</script>
+            else if (agent.includes('win')) {
+                userOS = "Windows";
+                targetId = "inst-win";
+            }
+            else if (agent.includes('linux') || agent.includes('x11')) {
+                userOS = "Linux";
+                targetId = "inst-linux";
+            }
+
+            if (userOS && targetId) {
+                greeting.innerHTML = `Вижу у тебя <b>${userOS}</b>`;
+
+                const card = document.getElementById(targetId);
+                if (card) {
+                    card.classList.add('active-card');
+                    const badge = card.querySelector('.sys-badge');
+                    if (badge) badge.style.display = 'block';
+                }
+            }
+        });
+    </script>
 
 </body>
+
 </html>

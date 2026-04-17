@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html class=" izodjpo idc0_347" lang="ru" theme="light">
+
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <title>Безопасность | ФЛАУНЧЕР</title>
 
     <meta charset="UTF-8">
     <meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-    
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>" rel="icon">
+
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>"
+        rel="icon">
 
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
@@ -15,8 +18,10 @@
 
     <style>
         /* --- Стили из прошлого раза для единообразия --- */
-        body { font-size: 18px; }
-        
+        body {
+            font-size: 18px;
+        }
+
         .content.doc {
             text-align: center;
             max-width: 1000px;
@@ -39,6 +44,7 @@
             padding: 30px;
             text-align: left;
         }
+
         [theme="dark"] .info-card {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.1);
@@ -52,12 +58,26 @@
         }
 
         /* Зеленая карточка (Безопасность) */
-        .card-safe { border-color: #a5d6a7; background: #e8f5e9; }
-        [theme="dark"] .card-safe { background: #1b5e20; border-color: #2e7d32; }
+        .card-safe {
+            border-color: #a5d6a7;
+            background: #e8f5e9;
+        }
+
+        [theme="dark"] .card-safe {
+            background: #1b5e20;
+            border-color: #2e7d32;
+        }
 
         /* Красная карточка (Проблема) */
-        .card-warn { border-color: #ffccbc; background: #fbe9e7; }
-        [theme="dark"] .card-warn { background: #b71c1c; border-color: #c62828; }
+        .card-warn {
+            border-color: #ffccbc;
+            background: #fbe9e7;
+        }
+
+        [theme="dark"] .card-warn {
+            background: #b71c1c;
+            border-color: #c62828;
+        }
 
         /* Блок с шагами решения */
         .step-box {
@@ -68,7 +88,11 @@
             margin-bottom: 20px;
             text-align: left;
         }
-        [theme="dark"] .step-box { background: #222; border-color: #444; }
+
+        [theme="dark"] .step-box {
+            background: #222;
+            border-color: #444;
+        }
 
         .step-num {
             display: inline-block;
@@ -82,7 +106,11 @@
             margin-right: 10px;
             font-weight: bold;
         }
-        [theme="dark"] .step-num { background: #fff; color: #000; }
+
+        [theme="dark"] .step-num {
+            background: #fff;
+            color: #000;
+        }
 
         .github-btn {
             display: inline-block;
@@ -97,10 +125,16 @@
             text-align: center;
             box-sizing: border-box;
         }
-        .github-btn:hover { background: #444; }
 
-        h2, h3 { font-weight: 800; }
-        
+        .github-btn:hover {
+            background: #444;
+        }
+
+        h2,
+        h3 {
+            font-weight: 800;
+        }
+
         .section-title {
             margin-top: 60px;
             margin-bottom: 30px;
@@ -108,93 +142,103 @@
         }
     </style>
 </head>
+
 <body>
 
-<main id="app">
-    <nav class="menu menu-simplified">
-        <div class="menu-flex-container">
-            <a class="menu-logo" href="help.html">
-                <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
-            </a>
-        </div>
-        <div class="menu-simplified-right">
-            <a class="d-button button-black" href="help.html">Назад</a>
-        </div>
-    </nav>
-
-    <div class="content doc">
-
-        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Антивирус ругается? 😱</h1>
-        <p style="font-size: 1.3rem; color: #666;">Без паники. Это нормально для новых программ.</p>
-
-        <div class="info-grid">
-            
-            <div class="info-card card-warn">
-                <i class="fas fa-exclamation-triangle card-icon-big" style="color: #d32f2f;"></i>
-                <h3>Почему это происходит?</h3>
-                <p>Антивирусы и браузеры (Chrome, Яндекс) "боятся" всего нового. У нас нет дорогой <b>Цифровой Подписи</b> (она стоит кучу денег), поэтому Windows считает программу "неизвестной".</p>
-                <p><b>Это ложная тревога.</b></p>
-            </div>
-
-            <div class="info-card card-safe">
-                <i class="fas fa-shield-alt card-icon-big" style="color: #2e7d32;"></i>
-                <h3>Почему это безопасно?</h3>
-                <p>Вирусы всегда прячут свой код. А мы — нет.</p>
-                <p>Весь наш код открыт. Любой программист может зайти и проверить, что внутри нет ничего плохого.</p>
-                
-                <a href="https://github.com/envel-experimental/HeliosLauncher" target="_blank" class="github-btn">
-                    <i class="fab fa-github"></i> Проверить исходный код
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="help.html">
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
                 </a>
             </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="help.html">Назад</a>
+            </div>
+        </nav>
+
+        <div class="content doc">
+
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Антивирус ругается? 😱</h1>
+            <p style="font-size: 1.3rem; color: #666;">Без паники. Это нормально для новых программ.</p>
+
+            <div class="info-grid">
+
+                <div class="info-card card-warn">
+                    <i class="fas fa-exclamation-triangle card-icon-big" style="color: #d32f2f;"></i>
+                    <h3>Почему это происходит?</h3>
+                    <p>Антивирусы и браузеры (Chrome, Яндекс) "боятся" всего нового. У нас нет дорогой <b>Цифровой
+                            Подписи</b> (она стоит кучу денег), поэтому Windows считает программу "неизвестной".</p>
+                    <p><b>Это ложная тревога.</b></p>
+                </div>
+
+                <div class="info-card card-safe">
+                    <i class="fas fa-shield-alt card-icon-big" style="color: #2e7d32;"></i>
+                    <h3>Почему это безопасно?</h3>
+                    <p>Вирусы всегда прячут свой код. А мы — нет.</p>
+                    <p>Весь наш код открыт. Любой программист может зайти и проверить, что внутри нет ничего плохого.
+                    </p>
+
+                    <a href="https://github.com/envel-experimental/HeliosLauncher" target="_blank" class="github-btn">
+                        <i class="fab fa-github"></i> Проверить исходный код
+                    </a>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 40px 0;">
+
+            <div class="section-title">1. Браузер не дает скачать?</div>
+
+            <div class="step-box">
+                <span class="step-num">1</span>
+                Если Chrome или Яндекс пишет "Файл может быть опасен", нажми <b>Ctrl + J</b> (откроются Загрузки).
+            </div>
+            <div class="step-box">
+                <span class="step-num">2</span>
+                Найди наш файл и нажми кнопку <b>"Сохранить"</b> (иногда нужно нажать "Подробнее" -> "Всё равно
+                сохранить").
+            </div>
+
+            <div class="section-title">2. Windows не дает запустить?</div>
+            <p style="margin-bottom: 20px;">Если вылезло синее окно "Система Windows защитила ваш компьютер":</p>
+
+            <div class="step-box">
+                <span class="step-num">1</span>
+                Нажми на маленькую надпись <u><b>Подробнее</b></u>.
+            </div>
+            <div class="step-box">
+                <span class="step-num">2</span>
+                Появится новая кнопка внизу — нажми <b>"Выполнить в любом случае"</b>.
+            </div>
+
+            <div style="margin-top: 50px; padding: 20px; background: #e3f2fd; border-radius: 12px; color: #0d47a1;">
+                <i class="fas fa-check-circle"></i> Это нужно сделать всего один раз при первой установке.
+            </div>
+
+            <p class="cent" style="margin-top: 50px; font-size: 0.9rem; color: #888;">
+                Ознакомьтесь с полным <a href="disclaimer.html"
+                    style="color: inherit; text-decoration: underline;">Отказом от ответственности</a> проекта.
+            </p>
+
         </div>
+    </main>
 
-        <hr style="border: 0; border-top: 1px solid rgba(0,0,0,0.1); margin: 40px 0;">
-
-        <div class="section-title">1. Браузер не дает скачать?</div>
-        
-        <div class="step-box">
-            <span class="step-num">1</span>
-            Если Chrome или Яндекс пишет "Файл может быть опасен", нажми <b>Ctrl + J</b> (откроются Загрузки).
+    <footer class="footer" id="footer" style="margin-top: 80px;">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
+            CC BY-SA
         </div>
-        <div class="step-box">
-            <span class="step-num">2</span>
-            Найди наш файл и нажми кнопку <b>"Сохранить"</b> (иногда нужно нажать "Подробнее" -> "Всё равно сохранить").
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
         </div>
+    </footer>
 
-        <div class="section-title">2. Windows не дает запустить?</div>
-        <p style="margin-bottom: 20px;">Если вылезло синее окно "Система Windows защитила ваш компьютер":</p>
-
-        <div class="step-box">
-            <span class="step-num">1</span>
-            Нажми на маленькую надпись <u><b>Подробнее</b></u>.
-        </div>
-        <div class="step-box">
-            <span class="step-num">2</span>
-            Появится новая кнопка внизу — нажми <b>"Выполнить в любом случае"</b>.
-        </div>
-
-        <div style="margin-top: 50px; padding: 20px; background: #e3f2fd; border-radius: 12px; color: #0d47a1;">
-            <i class="fas fa-check-circle"></i> Это нужно сделать всего один раз при первой установке.
-        </div>
-
-    </div>
-</main>
-
-<footer class="footer" id="footer" style="margin-top: 80px;">
-    <div class="footer-left">
-        <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="help.html">Лаунчер.Помощь</a> &nbsp;·&nbsp;
-        <span>2025</span><br><br>
-        CC BY-SA
-    </div>
-    <div class="footer-right">
-        <label class="theme-switcher" for="checkbox">
-            <input checked="checked" id="checkbox" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-</footer>
-
-<script src="files/wiki/theme.js"></script>
+    <script src="files/wiki/theme.js"></script>
 </body>
+
 </html>

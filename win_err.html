@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html class=" izodjpo idc0_347" lang="ru" theme="light">
+
 <head>
     <meta content="text/html; charset=UTF-8" http-equiv="content-type">
     <title>Решение проблем | ФЛАУНЧЕР</title>
 
     <meta charset="UTF-8">
     <meta content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-    
-    <link href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>" rel="icon">
+
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>"
+        rel="icon">
 
     <link href="files/wiki/style.css" rel="stylesheet">
     <link href="files/wiki/main.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 
     <style>
-        body { font-size: 18px; }
-        
+        body {
+            font-size: 18px;
+        }
+
         .content.doc {
             text-align: center;
             max-width: 900px;
@@ -26,30 +31,69 @@
         /* --- КАРТОЧКИ --- */
         .step-card {
             background: #fff;
-            border: 2px solid rgba(0,0,0,0.1);
+            border: 2px solid rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             padding: 30px;
             margin-bottom: 30px;
             text-align: left;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.02);
         }
+
         [theme="dark"] .step-card {
             background: rgba(255, 255, 255, 0.05);
             border-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Цвета */
-        .card-blue { border-color: #90caf9; background: #e3f2fd; }
-        .card-red { border-color: #ef9a9a; background: #ffebee; }
-        .card-orange { border-color: #ffcc80; background: #fff3e0; }
-        .card-gray { border-color: #bdbdbd; background: #f5f5f5; }
-        .card-info { border-color: #b3e5fc; background: #e1f5fe; }
+        .card-blue {
+            border-color: #90caf9;
+            background: #e3f2fd;
+        }
 
-        [theme="dark"] .card-blue { background: #0d47a1; border-color: #1976d2; }
-        [theme="dark"] .card-red { background: #b71c1c; border-color: #d32f2f; }
-        [theme="dark"] .card-orange { background: #e65100; border-color: #f57c00; }
-        [theme="dark"] .card-gray { background: #424242; border-color: #616161; }
-        [theme="dark"] .card-info { background: #0277bd; border-color: #0288d1; }
+        .card-red {
+            border-color: #ef9a9a;
+            background: #ffebee;
+        }
+
+        .card-orange {
+            border-color: #ffcc80;
+            background: #fff3e0;
+        }
+
+        .card-gray {
+            border-color: #bdbdbd;
+            background: #f5f5f5;
+        }
+
+        .card-info {
+            border-color: #b3e5fc;
+            background: #e1f5fe;
+        }
+
+        [theme="dark"] .card-blue {
+            background: #0d47a1;
+            border-color: #1976d2;
+        }
+
+        [theme="dark"] .card-red {
+            background: #b71c1c;
+            border-color: #d32f2f;
+        }
+
+        [theme="dark"] .card-orange {
+            background: #e65100;
+            border-color: #f57c00;
+        }
+
+        [theme="dark"] .card-gray {
+            background: #424242;
+            border-color: #616161;
+        }
+
+        [theme="dark"] .card-info {
+            background: #0277bd;
+            border-color: #0288d1;
+        }
 
         .card-title {
             font-size: 1.6rem;
@@ -62,7 +106,7 @@
 
         /* Маленькие шаги */
         .mini-step {
-            background: rgba(255,255,255,0.7);
+            background: rgba(255, 255, 255, 0.7);
             border-radius: 12px;
             padding: 15px;
             margin-bottom: 10px;
@@ -71,7 +115,10 @@
             gap: 15px;
             font-weight: 500;
         }
-        [theme="dark"] .mini-step { background: rgba(0,0,0,0.2); }
+
+        [theme="dark"] .mini-step {
+            background: rgba(0, 0, 0, 0.2);
+        }
 
         .step-num {
             background: #000;
@@ -83,7 +130,11 @@
             border-radius: 50%;
             font-weight: bold;
         }
-        [theme="dark"] .step-num { background: #fff; color: #000; }
+
+        [theme="dark"] .step-num {
+            background: #fff;
+            color: #000;
+        }
 
         /* Кнопки */
         .action-btn {
@@ -98,8 +149,13 @@
             border: none;
             cursor: pointer;
         }
-        .action-btn:hover { opacity: 0.8; transform: translateY(-2px); transition: 0.2s; }
-        
+
+        .action-btn:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+            transition: 0.2s;
+        }
+
         .code-block {
             background: #333;
             color: #fff;
@@ -115,12 +171,14 @@
         /* ТАБЛИЦА ТРЕБОВАНИЙ (Обновленная) */
         .req-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* Чуть шире */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            /* Чуть шире */
             gap: 15px;
             margin-top: 20px;
         }
+
         .req-item {
-            background: rgba(255,255,255,0.6);
+            background: rgba(255, 255, 255, 0.6);
             padding: 20px;
             border-radius: 12px;
             text-align: center;
@@ -128,11 +186,25 @@
             flex-direction: column;
             justify-content: start;
         }
-        [theme="dark"] .req-item { background: rgba(0,0,0,0.2); }
-        
-        .req-icon { font-size: 2.5rem; margin-bottom: 10px; display: block; }
-        .req-label { font-weight: bold; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; opacity: 0.8;}
-        
+
+        [theme="dark"] .req-item {
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .req-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .req-label {
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            opacity: 0.8;
+        }
+
         /* Список внутри карточки */
         .req-list {
             text-align: left;
@@ -142,10 +214,25 @@
             padding-left: 0;
             list-style: none;
         }
-        .req-list li { margin-bottom: 5px; border-bottom: 1px solid rgba(0,0,0,0.05); padding-bottom: 5px; }
-        .req-list li:last-child { border-bottom: none; }
-        .req-highlight { font-weight: 800; color: #000; }
-        [theme="dark"] .req-highlight { color: #fff; }
+
+        .req-list li {
+            margin-bottom: 5px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            padding-bottom: 5px;
+        }
+
+        .req-list li:last-child {
+            border-bottom: none;
+        }
+
+        .req-highlight {
+            font-weight: 800;
+            color: #000;
+        }
+
+        [theme="dark"] .req-highlight {
+            color: #fff;
+        }
 
         .alert-box {
             background: #ffebee;
@@ -155,152 +242,169 @@
             border-radius: 8px;
             font-size: 0.95rem;
         }
-        [theme="dark"] .alert-box { background: #3e2723; border-color: #d84315; }
 
+        [theme="dark"] .alert-box {
+            background: #3e2723;
+            border-color: #d84315;
+        }
     </style>
 </head>
+
 <body>
 
-<main id="app">
-    <nav class="menu menu-simplified">
-        <div class="menu-flex-container">
-            <a class="menu-logo" href="help.html">
-                <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
-            </a>
-        </div>
-        <div class="menu-simplified-right">
-            <a class="d-button button-black" href="help.html">Назад</a>
-        </div>
-    </nav>
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="help.html">
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+                </a>
+            </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="help.html">Назад</a>
+            </div>
+        </nav>
 
-    <div class="content doc">
-        
-        <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Чиним Windows 🛠️</h1>
-        <p style="font-size: 1.2rem; color: #666; margin-bottom: 40px;">Частые ошибки и проверка компьютера.</p>
+        <div class="content doc">
 
-        <div class="step-card card-blue">
-            <div class="card-title" style="color: #0d47a1;">
-                <i class="fab fa-windows"></i> Синее окно защиты
-            </div>
-            <p>Если Windows пишет "Система защитила ваш компьютер":</p>
-            <div class="mini-step">
-                <div class="step-num">1</div>
-                <div>Нажми <u><b>Подробнее</b></u> -> <b>"Выполнить в любом случае"</b>.</div>
-            </div>
-        </div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Чиним Windows 🛠️</h1>
+            <p style="font-size: 1.2rem; color: #666; margin-bottom: 40px;">Частые ошибки и проверка компьютера.</p>
 
-        <div class="step-card card-red">
-            <div class="card-title" style="color: #c62828;">
-                <i class="fas fa-ghost"></i> Файл исчез / Ошибка
+            <div class="step-card card-blue">
+                <div class="card-title" style="color: #0d47a1;">
+                    <i class="fab fa-windows"></i> Синее окно защиты
+                </div>
+                <p>Если Windows пишет "Система защитила ваш компьютер":</p>
+                <div class="mini-step">
+                    <div class="step-num">1</div>
+                    <div>Нажми <u><b>Подробнее</b></u> -> <b>"Выполнить в любом случае"</b>.</div>
+                </div>
             </div>
-            <p>Антивирус мог удалить файл. Отключи защиту на 5 минут и скачай заново.</p>
-            <p style="margin-top: 10px;"><a href="vir_err.html" style="color: #c62828; font-weight: bold;">Подробнее про вирусы (Читать)</a></p>
-        </div>
 
-        <div class="step-card card-orange">
-            <div class="card-title" style="color: #ef6c00;">
-                <i class="fab fa-java"></i> Проблемы с Java
+            <div class="step-card card-red">
+                <div class="card-title" style="color: #c62828;">
+                    <i class="fas fa-ghost"></i> Файл исчез / Ошибка
+                </div>
+                <p>Антивирус мог удалить файл. Отключи защиту на 5 минут и скачай заново.</p>
+                <p style="margin-top: 10px;"><a href="vir_err.html" style="color: #c62828; font-weight: bold;">Подробнее
+                        про вирусы (Читать)</a></p>
             </div>
-            <p>Чаще всего проблема в скачивании Java. Мы сделали про это отдельную страницу:</p>
-            
-            <a href="java.html" class="action-btn" style="background: #ef6c00;">
-                <i class="fas fa-book-open"></i> Открыть инструкцию по Java
-            </a>
-        </div>
-        
-        <div class="step-card card-gray">
-            <div class="card-title" style="color: #424242;">
-                <i class="fas fa-recycle"></i> Полный сброс
-            </div>
-            <p>Нужно удалить папку <b>.foxford</b>. Проверь её в двух местах:</p>
-            
-            <div class="mini-step">
-                <div class="step-num">1</div>
-                <div>Нажми <b>Win + R</b>, вставь код ниже и удали папку <b>.foxford</b> (если она там есть).</div>
-            </div>
-            <div class="code-block">
-                <span id="path-code">%appdata%</span>
-                <button onclick="copyPath()" style="cursor: pointer;">Копировать</button>
-            </div>
-            
-            <div class="mini-step">
-                <div class="step-num">2</div>
-                <div>Зайди в "Этот компьютер" -> <b>Диск C:\</b>. Если видишь папку <b>.foxford</b> там — удали её тоже.</div>
-            </div>
-        </div>
 
-        <div class="step-card card-info">
-            <div class="card-title" style="color: #01579b;">
-                <i class="fas fa-laptop-medical"></i> Твой ПК подходит?
+            <div class="step-card card-orange">
+                <div class="card-title" style="color: #ef6c00;">
+                    <i class="fab fa-java"></i> Проблемы с Java
+                </div>
+                <p>Чаще всего проблема в скачивании Java. Мы сделали про это отдельную страницу:</p>
+
+                <a href="java.html" class="action-btn" style="background: #ef6c00;">
+                    <i class="fas fa-book-open"></i> Открыть инструкцию по Java
+                </a>
             </div>
-            <p>Если ничего не помогает, возможно, компьютер слишком старый.</p>
-            
-            <div class="req-grid">
-                
-                <div class="req-item">
-                    <span class="req-icon">🖥️</span>
-                    <div class="req-label">Видеокарта</div>
-                    <ul class="req-list">
-                        <li><span class="req-highlight">Intel:</span> Iris (с 2019 года)</li>
-                        <li><span class="req-highlight">NVIDIA:</span> Серия 400 и новее</li>
-                        <li><span class="req-highlight">AMD:</span> Radeon HD 7000+</li>
-                    </ul>
+
+            <div class="step-card card-gray">
+                <div class="card-title" style="color: #424242;">
+                    <i class="fas fa-recycle"></i> Полный сброс
+                </div>
+                <p>Нужно удалить папку <b>.foxford</b>. Проверь её в двух местах:</p>
+
+                <div class="mini-step">
+                    <div class="step-num">1</div>
+                    <div>Нажми <b>Win + R</b>, вставь код ниже и удали папку <b>.foxford</b> (если она там есть).</div>
+                </div>
+                <div class="code-block">
+                    <span id="path-code">%appdata%</span>
+                    <button onclick="copyPath()" style="cursor: pointer;">Копировать</button>
                 </div>
 
-                <div class="req-item">
-                    <span class="req-icon">🧠</span>
-                    <div class="req-label">Память (ОЗУ)</div>
-                    <ul class="req-list">
-                        <li><span class="req-highlight">8 ГБ</span> — Рекомендуется</li>
-                        <li>Если меньше 8 ГБ, игра может сильно тормозить.</li>
-                    </ul>
+                <div class="mini-step">
+                    <div class="step-num">2</div>
+                    <div>Зайди в "Этот компьютер" -> <b>Диск C:\</b>. Если видишь папку <b>.foxford</b> там — удали её
+                        тоже.</div>
                 </div>
-
-                <div class="req-item">
-                    <span class="req-icon">🪟</span>
-                    <div class="req-label">Windows</div>
-                    <ul class="req-list">
-                        <li><span class="req-highlight">Версии:</span> 10 или 11</li>
-                        <li><span class="req-highlight">Тип:</span> Только 64-бит (x64)</li>
-                        <li>Обязательно обновленная!</li>
-                    </ul>
-                </div>
-
             </div>
 
-            <div class="alert-box">
-                <h4 style="margin-bottom: 10px; color: #d32f2f;"><i class="fas fa-exclamation-circle"></i> ВАЖНО ПРО WINDOWS</h4>
-                <p>Не используйте самодельные сборки (Lite, Game Edition, торренты). Они часто ломают игру.</p>
-                <p>Нужна <a href="https://www.microsoft.com/ru-ru/software-download/" target="_blank" style="text-decoration: underline;"><b>Официальная Windows</b></a> или <a href="https://massgrave.dev/windows_11_links" target="_blank" style="text-decoration: underline;"><b>Massgrave</b></a>.</p>
-                <p style="margin-top: 10px;">И обязательно зайдите в <b>Центр обновлений</b> и установите все обновления.</p>
+            <div class="step-card card-info">
+                <div class="card-title" style="color: #01579b;">
+                    <i class="fas fa-laptop-medical"></i> Твой ПК подходит?
+                </div>
+                <p>Если ничего не помогает, возможно, компьютер слишком старый.</p>
+
+                <div class="req-grid">
+
+                    <div class="req-item">
+                        <span class="req-icon">🖥️</span>
+                        <div class="req-label">Видеокарта</div>
+                        <ul class="req-list">
+                            <li><span class="req-highlight">Intel:</span> Iris (с 2019 года)</li>
+                            <li><span class="req-highlight">NVIDIA:</span> Серия 400 и новее</li>
+                            <li><span class="req-highlight">AMD:</span> Radeon HD 7000+</li>
+                        </ul>
+                    </div>
+
+                    <div class="req-item">
+                        <span class="req-icon">🧠</span>
+                        <div class="req-label">Память (ОЗУ)</div>
+                        <ul class="req-list">
+                            <li><span class="req-highlight">8 ГБ</span> — Рекомендуется</li>
+                            <li>Если меньше 8 ГБ, игра может сильно тормозить.</li>
+                        </ul>
+                    </div>
+
+                    <div class="req-item">
+                        <span class="req-icon">🪟</span>
+                        <div class="req-label">Windows</div>
+                        <ul class="req-list">
+                            <li><span class="req-highlight">Версии:</span> 10 или 11</li>
+                            <li><span class="req-highlight">Тип:</span> Только 64-бит (x64)</li>
+                            <li>Обязательно обновленная!</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="alert-box">
+                    <h4 style="margin-bottom: 10px; color: #d32f2f;"><i class="fas fa-exclamation-circle"></i> ВАЖНО ПРО
+                        WINDOWS</h4>
+                    <p>Не используйте самодельные сборки (Lite, Game Edition, торренты). Они часто ломают игру.</p>
+                    <p>Нужна <a href="https://www.microsoft.com/ru-ru/software-download/" target="_blank"
+                            style="text-decoration: underline;"><b>Официальная Windows</b></a> или <a
+                            href="https://massgrave.dev/windows_11_links" target="_blank"
+                            style="text-decoration: underline;"><b>Massgrave</b></a>.</p>
+                    <p style="margin-top: 10px;">И обязательно зайдите в <b>Центр обновлений</b> и установите все
+                        обновления.</p>
+                </div>
             </div>
+
+            <p class="cent" style="margin-top: 50px; font-size: 0.9rem; color: #888;">
+                Решая проблемы с безопасностью, ознакомьтесь с <a href="disclaimer.html"
+                    style="color: inherit; text-decoration: underline;">Отказом от ответственности</a>.
+            </p>
+
         </div>
+    </main>
 
-    </div>
-</main>
+    <footer class="footer" id="footer" style="margin-top: 80px;">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
+            CC BY-SA
+        </div>
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
 
-<footer class="footer" id="footer" style="margin-top: 80px;">
-    <div class="footer-left">
-        <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="help.html">Лаунчер.Помощь</a> &nbsp;·&nbsp;
-        <span>2025</span><br><br>
-        CC BY-SA
-    </div>
-    <div class="footer-right">
-        <label class="theme-switcher" for="checkbox">
-            <input checked="checked" id="checkbox" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-</footer>
-
-<script src="files/wiki/theme.js"></script>
-<script>
-    function copyPath() {
-        navigator.clipboard.writeText("%appdata%");
-        alert("Скопировано! Вставь это в окно (Ctrl+V).");
-    }
-</script>
+    <script src="files/wiki/theme.js"></script>
+    <script>
+        function copyPath() {
+            navigator.clipboard.writeText("%appdata%");
+            alert("Скопировано! Вставь это в окно (Ctrl+V).");
+        }
+    </script>
 
 </body>
+
 </html>

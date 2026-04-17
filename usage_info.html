@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru" theme="light">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,40 +10,45 @@
     <link rel="stylesheet" href="files/wiki/extra.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
 </head>
+
 <body>
-<main id="app">
-    <nav class="menu menu-simplified">
-        <div class="menu-flex-container">
-            <a class="menu-logo" href="index.html">
-                <span>ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПРЕПОДАВАТЕЛЮ</span>
-            </a>
-        </div>
-        <div class="menu-simplified-right">
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="index.html">
+                    <span>ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПРЕПОДАВАТЕЛЮ</span>
+                </a>
+            </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="help.html" style="margin-right: 10px;">ПОМОЩЬ</a>
+            </div>
+        </nav>
+
+        <div class="content doc">
+            <h2>💻 Руководство по эксплуатации для преподавателей</h2>
+
+            <h3>Введение:</h3>
+            <p>Лаунчер построен для запуска версий:</p>
+            <ul>
+                <li>1.16.5 (Курс "Введение в программирование в Minecraft")</li>
+                <li>1.20.1 (Курс "Программирование в Minecraft") (2026) <span style="color: limegreen;">(NEW)</span>
+                </li>
+            </ul>
+            <p><span style="color: red;">(Важно: лаунчер НЕ поддерживает 1.8.9 курса "Программирование в Minecraft"
+                    (Старая версия))</span></p>
+            <p>Поддержка включает современные ОС Windows (только 10/11), MacOS (только выше 11.0), Linux. С более
+                подробными техническими требованиями можно ознакомиться здесь:</p>
             <a class="d-button button-black" href="help.html" style="margin-right: 10px;">ПОМОЩЬ</a>
+            <p>Все построено таким образом, чтобы было достаточно было дать ссылку на страницу скачивания, дальше
+                подсказки будут предоставлены сайтом.</p>
         </div>
-    </nav>
-
-    <div class="content doc">
-        <h2>💻 Руководство по эксплуатации для преподавателей</h2>
-        
-        <h3>Введение:</h3>
-        <p>Лаунчер построен для запуска версий:</p>
-        <ul>
-            <li>1.16.5 (Курс "Введение в программирование в Minecraft")</li>
-            <li>1.20.1 (Курс "Программирование в Minecraft") (2025) <span style="color: limegreen;">(NEW)</span></li>
-        </ul>
-        <p><span style="color: red;">(Важно: лаунчер НЕ поддерживает 1.8.9 курса "Программирование в Minecraft" (Старая версия))</span></p>  
-        <p>Поддержка включает современные ОС Windows (только 10/11), MacOS (только выше 11.0), Linux. С более подробными техническими требованиями можно ознакомиться здесь:</p>
-        <a class="d-button button-black" href="help.html" style="margin-right: 10px;">ПОМОЩЬ</a>
-        <p>Все построено таким образом, чтобы было достаточно было дать ссылку на страницу скачивания, дальше подсказки будут предоставлены сайтом.</p>
-    </div>
-    <div class="content doc">
-        <h3>Текст для отправки в чат детям:</h3>
+        <div class="content doc">
+            <h3>Текст для отправки в чат детям:</h3>
 
 
-        <h4>1.16.5 (Курс "Введение в программирование в Minecraft"):</h4>
-        <div class="code-block">
-            <pre><code id="env-file">Привет-привет!
+            <h4>1.16.5 (Курс "Введение в программирование в Minecraft"):</h4>
+            <div class="code-block">
+                <pre><code id="env-file">Привет-привет!
 Давайте подготовимся к занятию!
 
 Тебе понадобится скачать лаунчер, если еще не установлен по ссылке 
@@ -56,13 +62,13 @@
 АДРЕС СЕРВЕРА:
 
 [ПРЕПОДАВАТЕЛЮ ВСТАВИТЬ АДРЕС]</code></pre>
-            <button class="copy-button" onclick="copyToClipboard('env-file')">
-                <i class="fas fa-copy"></i> Копировать
-            </button>
-        </div>
-        <h4>1.20.1 (Курс "Программирование в Minecraft") (2025):</h4>
-        <div class="code-block">
-            <pre><code id="env-file">Привет-привет!
+                <button class="copy-button" onclick="copyToClipboard('env-file')">
+                    <i class="fas fa-copy"></i> Копировать
+                </button>
+            </div>
+            <h4>1.20.1 (Курс "Программирование в Minecraft") (2026):</h4>
+            <div class="code-block">
+                <pre><code id="env-file">Привет-привет!
 Давайте подготовимся к занятию!
 
 Тебе понадобится скачать лаунчер, если еще не установлен по ссылке 
@@ -76,33 +82,34 @@
 АДРЕС СЕРВЕРА:
 
 [ПРЕПОДАВАТЕЛЮ ВСТАВИТЬ АДРЕС]</code></pre>
-            <button class="copy-button" onclick="copyToClipboard('env-file')">
-                <i class="fas fa-copy"></i> Копировать
-            </button>
-        </div>  
-        
-        <img src="files/images/launcher/1.webp">
-    </div>
+                <button class="copy-button" onclick="copyToClipboard('env-file')">
+                    <i class="fas fa-copy"></i> Копировать
+                </button>
+            </div>
+
+            <img src="files/images/launcher/1.webp">
+        </div>
 
 
 
-</main>
+    </main>
 
-<footer class="footer" id="footer">
-    <div class="footer-left">
-        <a href="">f-launcher.ru</a> &nbsp;·&nbsp;
-        <a href="">Лаунчер.Администратору</a> &nbsp;·&nbsp;
-        <a href="">02.12.2024</a><br><br>
-        CC BY-SA
-    </div>
-    <div class="footer-right">
-        <label class="theme-switcher" for="checkbox">
-            <input checked="checked" id="checkbox" type="checkbox">
-            <span class="slider round"></span>
-        </label>
-    </div>
-</footer>
+    <footer class="footer" id="footer">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
+            CC BY-SA
+        </div>
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
 
-<script src="files/wiki/theme.js"></script>
+    <script src="files/wiki/theme.js"></script>
 </body>
+
 </html>
