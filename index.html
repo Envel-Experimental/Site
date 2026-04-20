@@ -133,6 +133,15 @@
             <h2 id="os-info" class="cent" style="font-weight: normal; color: #666;">Определение твоей операционной
                 системы...</h2>
 
+            <div id="version-toggle-section" class="version-toggle-container">
+                <div class="version-toggle">
+                    <input type="radio" id="stable" name="version" value="stable" checked>
+                    <label for="stable">Стабильная</label>
+                    <input type="radio" id="latest" name="version" value="latest">
+                    <label for="latest">Новейшая</label>
+                </div>
+            </div>
+
             <div id="download-section" class="download-buttons">
             </div>
             <p class="cent" style="margin-top: 30px; font-size: 0.9rem; color: #888;">
@@ -175,13 +184,52 @@
             return false;
         }
 
-        function loadDownloadLinks() {
-            return fetch('downloadLinks.json')
-                .then(response => response.json())
-                .catch(error => {
-                    console.error('Ошибка:', error);
+        let cachedStableLinks = null;
+        let cachedLatestLinks = null;
+
+        async function loadDownloadLinks(type = 'stable') {
+            if (type === 'stable') {
+                if (cachedStableLinks) return cachedStableLinks;
+                try {
+                    const response = await fetch('downloadLinks.json');
+                    cachedStableLinks = await response.json();
+                    return cachedStableLinks;
+                } catch (error) {
+                    console.error('Ошибка загрузки стабильной версии:', error);
                     return { windows: "#", mac: "#", linux: "#" };
-                });
+                }
+            } else {
+                if (cachedLatestLinks) return cachedLatestLinks;
+                try {
+                    const response = await fetch('https://api.github.com/repos/Envel-Experimental/HeliosLauncher/releases');
+                    const releases = await response.json();
+                    // Фильтруем только релизы (не пре-релизы и не черновики)
+                    const latest = releases.find(r => !r.prerelease && !r.draft);
+                    if (!latest) throw new Error('Релизы не найдены');
+
+                    const links = {
+                        windows: "#",
+                        mac: "#",
+                        linux: "#",
+                        all: latest.html_url
+                    };
+
+                    latest.assets.forEach(asset => {
+                        if (asset.name.match(/Flauncher-setup-.*-x64\.exe$/)) {
+                            links.windows = asset.browser_download_url;
+                        } else if (asset.name.match(/Flauncher-setup-.*-universal\.dmg$/)) {
+                            links.mac = asset.browser_download_url;
+                        } else if (asset.name.match(/Flauncher-setup-.*-x86_64\.AppImage$/)) {
+                            links.linux = asset.browser_download_url;
+                        }
+                    });
+                    cachedLatestLinks = links;
+                    return links;
+                } catch (error) {
+                    console.error('Ошибка загрузки новейшей версии:', error);
+                    return loadDownloadLinks('stable');
+                }
+            }
         }
 
         function detectOS() {
@@ -204,9 +252,29 @@
             }, 2000);
         }
 
+        async function updateDownloadButtons(type) {
+            const downloadSection = document.getElementById("download-section");
+            const os = detectOS();
+            const data = await loadDownloadLinks(type);
+
+            let htmlContent = "";
+            if (data && os.linkKey && data[os.linkKey]) {
+                htmlContent += `
+                    <a href="${data[os.linkKey]}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
+                        <i class="${os.icon}"></i> 
+                        Скачать для ${os.name}
+                    </a>
+                `;
+            }
+
+            htmlContent += `
+                <a href="all_list.html" class="secondary-button"><i class="fas fa-list"></i> Другая версия</a>
+            `;
+            downloadSection.innerHTML = htmlContent;
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const osInfoElement = document.getElementById("os-info");
-            const downloadSection = document.getElementById("download-section");
             const os = detectOS();
 
             if (!isSupportedOS()) {
@@ -216,23 +284,20 @@
 
             osInfoElement.innerHTML = `Твоя система: <b>${os.name}</b>`;
 
-            loadDownloadLinks().then(data => {
-                let htmlContent = "";
+            // Загрузка сохраненного выбора или по умолчанию стабильная
+            const savedVersion = localStorage.getItem('launcher-version-type') || 'stable';
+            const toggleInput = document.getElementById(savedVersion);
+            if (toggleInput) toggleInput.checked = true;
 
-                if (data && os.linkKey && data[os.linkKey]) {
-                    htmlContent += `
-                        <a href="${data[os.linkKey]}" class="primary-button primary-button-glow" onclick="redirectToHelpPage()">
-                            <i class="${os.icon}"></i> 
-                            Скачать для ${os.name}
-                        </a>
-                    `;
-                }
+            updateDownloadButtons(savedVersion);
 
-                htmlContent += `
-                    <a href="all_list.html" class="secondary-button"><i class="fas fa-list"></i> Другая версия</a>
-                `;
-
-                downloadSection.innerHTML = htmlContent;
+            // Обработка переключения
+            document.querySelectorAll('input[name="version"]').forEach(input => {
+                input.addEventListener('change', (e) => {
+                    const versionType = e.target.value;
+                    localStorage.setItem('launcher-version-type', versionType);
+                    updateDownloadButtons(versionType);
+                });
             });
         });
     </script>
