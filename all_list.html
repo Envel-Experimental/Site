@@ -192,7 +192,7 @@
                 try {
                     const response = await fetch('https://api.github.com/repos/Envel-Experimental/HeliosLauncher/releases');
                     const releases = await response.json();
-                    const latest = releases.find(r => !r.prerelease && !r.draft);
+                    const latest = releases.find(r => !r.draft && (!r.prerelease || (r.name && r.name.includes('STABLE'))));
                     if (!latest) throw new Error('Релизы не найдены');
 
                     const links = {
