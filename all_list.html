@@ -195,6 +195,24 @@
                     const match = cachedStableLinks.windows.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
                     if (match) cachedStableLinks.version = match[1];
 
+                    // Пытаемся получить хэш из GitHub для стабильной версии
+                    try {
+                        const tagMatch = cachedStableLinks.windows.match(/releases\/download\/(.*?)\//);
+                        const tagName = tagMatch ? tagMatch[1] : null;
+
+                        if (tagName) {
+                            const ghResponse = await fetch(`https://api.github.com/repos/Envel-Experimental/HeliosLauncher/releases/tags/${tagName}`);
+                            const stableRel = await ghResponse.json();
+                            
+                            if (stableRel && stableRel.body) {
+                                const hashMatch = stableRel.body.match(/Commit.*?\s+([a-f0-9]{7,40})/i);
+                                if (hashMatch) cachedStableLinks.hash = hashMatch[1].substring(0, 7);
+                            }
+                        }
+                    } catch (e) {
+                        console.warn('Не удалось загрузить хэш для стабильной версии');
+                    }
+
                     return cachedStableLinks;
                 } catch (error) {
                     console.error('Ошибка загрузки стабильной версии:', error);
@@ -213,8 +231,12 @@
                         mac: "#",
                         linux: "#",
                         all: latest.html_url,
-                        version: ""
+                        version: "",
+                        hash: ""
                     };
+
+                    const hashMatch = latest.body ? latest.body.match(/Commit.*?\s+([a-f0-9]{7,40})/i) : null;
+                    if (hashMatch) links.hash = hashMatch[1].substring(0, 7);
 
                     latest.assets.forEach(asset => {
                         if (asset.name.match(/Flauncher-setup-.*-x64\.exe$/)) {
@@ -266,7 +288,9 @@
             const versionInfo = document.getElementById("version-info");
             if (data.version) {
                 const label = type === 'stable' ? "Стабильная версия" : "Новейшая версия";
-                versionInfo.innerHTML = `${label} ${data.version}`;
+                let content = `${label} ${data.version}`;
+                if (data.hash) content += ` (@${data.hash})`;
+                versionInfo.innerHTML = content;
             } else {
                 versionInfo.innerHTML = "";
             }
