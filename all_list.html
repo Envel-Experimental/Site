@@ -105,6 +105,13 @@
             font-size: 1.5rem;
             margin-bottom: 40px;
         }
+        #version-info {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: #888;
+            opacity: 0.7;
+        }
     </style>
 </head>
 
@@ -137,6 +144,7 @@
 
             <div id="download-section" class="download-buttons">
             </div>
+            <div id="version-info"></div>
 
             <div class="download-buttons" style="margin-top: 50px;">
                 <a href="all.html" class="secondary-button">
@@ -182,6 +190,11 @@
                 try {
                     const response = await fetch('downloadLinks.json');
                     cachedStableLinks = await response.json();
+
+                    // Пытаемся извлечь версию из названия файла в ссылке
+                    const match = cachedStableLinks.windows.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
+                    if (match) cachedStableLinks.version = match[1];
+
                     return cachedStableLinks;
                 } catch (error) {
                     console.error('Ошибка загрузки стабильной версии:', error);
@@ -199,7 +212,8 @@
                         windows: "#",
                         mac: "#",
                         linux: "#",
-                        all: latest.html_url
+                        all: latest.html_url,
+                        version: ""
                     };
 
                     latest.assets.forEach(asset => {
@@ -209,6 +223,12 @@
                             links.mac = asset.browser_download_url;
                         } else if (asset.name.match(/Flauncher-setup-.*-x86_64\.AppImage$/)) {
                             links.linux = asset.browser_download_url;
+                        }
+
+                        // Извлекаем версию из первого подходящего ассета
+                        if (!links.version) {
+                            const vMatch = asset.name.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
+                            if (vMatch) links.version = vMatch[1];
                         }
                     });
                     cachedLatestLinks = links;
@@ -241,6 +261,15 @@
             `;
 
             downloadSection.innerHTML = windowsButton + macButton + linuxButton;
+
+            // Обновляем информацию о версии
+            const versionInfo = document.getElementById("version-info");
+            if (data.version) {
+                const label = type === 'stable' ? "Стабильная версия" : "Новейшая версия";
+                versionInfo.innerHTML = `${label} ${data.version}`;
+            } else {
+                versionInfo.innerHTML = "";
+            }
 
             // Обновляем ссылку "Открыть ещё варианты" если она должна вести на релиз
             const allVariantsLink = document.querySelector('a[href^="all.html"], a[href^="https://github.com/"]');
