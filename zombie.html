@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="ru" theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Зомби-протокол | ФЛАУНЧЕР</title>
+
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧟</text></svg>"
+        rel="icon">
+    <link href="files/wiki/style.css" rel="stylesheet">
+    <link href="files/wiki/main.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-size: 18px;
+        }
+
+        .content.doc {
+            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .info-card {
+            background: rgba(0, 0, 0, 0.03);
+            border: 2px solid rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: left;
+            transition: transform 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        [theme="dark"] .info-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .card-icon-big {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            text-align: center;
+        }
+
+        .card-blue {
+            border-color: #bbdefb;
+            background: #e3f2fd;
+        }
+
+        [theme="dark"] .card-blue {
+            background: #0d47a122;
+            border-color: #1976d244;
+        }
+
+        .card-purple {
+            border-color: #e1bee7;
+            background: #f3e5f5;
+        }
+
+        [theme="dark"] .card-purple {
+            background: #4a148c22;
+            border-color: #7b1fa244;
+        }
+
+        .card-green {
+            border-color: #c8e6c9;
+            background: #e8f5e9;
+        }
+
+        [theme="dark"] .card-green {
+            background: #1b5e2022;
+            border-color: #2e7d3244;
+        }
+
+        .card-orange {
+            border-color: #ffe0b2;
+            background: #fff3e0;
+        }
+
+        [theme="dark"] .card-orange {
+            background: #e6510022;
+            border-color: #ef6c0044;
+        }
+
+        .card-red {
+            border-color: #ffcdd2;
+            background: #ffe0e0;
+        }
+
+        [theme="dark"] .card-red {
+            background: #c6282822;
+            border-color: #e5393544;
+        }
+
+        .card-cyan {
+            border-color: #b2ebf2;
+            background: #e0f7fa;
+        }
+
+        [theme="dark"] .card-cyan {
+            background: #00838f22;
+            border-color: #00acc144;
+        }
+
+        .step-box {
+            background: #fff;
+            border: 2px solid #eee;
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        [theme="dark"] .step-box {
+            background: #222;
+            border-color: #444;
+        }
+
+        .step-num {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        [theme="dark"] .step-num {
+            background: #fff;
+            color: #000;
+        }
+
+        h2, h3 {
+            font-weight: 800;
+        }
+
+        .section-title {
+            margin-top: 60px;
+            margin-bottom: 30px;
+            font-size: 2rem;
+        }
+
+        .zp-image {
+            max-width: 100%;
+            border-radius: 24px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .badge-p2p {
+            display: inline-block;
+            background: #4285F4;
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 900;
+            margin-bottom: 15px;
+        }
+
+        .setting-path {
+            background: rgba(0,0,0,0.05);
+            padding: 10px 15px;
+            border-radius: 10px;
+            font-family: monospace;
+            font-weight: bold;
+        }
+
+        [theme="dark"] .setting-path {
+            background: rgba(255,255,255,0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <main id="app">
+        <nav class="menu menu-simplified">
+            <div class="menu-flex-container">
+                <a class="menu-logo" href="help.html">
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+                </a>
+            </div>
+            <div class="menu-simplified-right">
+                <a class="d-button button-black" href="help.html">Назад</a>
+            </div>
+        </nav>
+
+        <div class="content doc">
+            <div class="badge-p2p">ТЕХНОЛОГИЯ P2P</div>
+            <h1 style="font-size: 2.5rem; margin-bottom: 20px;">Внедряем «Зомби-протокол» в Флаунчер 🧟</h1>
+            <p style="font-size: 1.3rem; color: #666; line-height: 1.6;">
+                «Зомби-протокол» — это технология, которая помогает скачивать файлы игры гораздо быстрее и надежнее. Она объединяет ресурсы наших серверов и других учеников, чтобы вы могли начать заниматься как можно скорее.
+            </p>
+
+            <img src="files/images/images/zp.jpg" alt="Зомби Протокол" class="zp-image">
+
+            <div class="section-title">Как это работает? 🏎️</div>
+            <div class="step-box" style="border-left: 5px solid #4285F4; background: rgba(66, 133, 244, 0.05);">
+                <p>Наш лаунчер работает очень хитро. Он не просто качает файлы по ссылке, а запускает <b>два поиска одновременно</b>:</p>
+                <ol>
+                    <li>Ищет файлы на наших основных серверах.</li>
+                    <li>Ищет файлы у других учеников, которые находятся к вам ближе всего.</li>
+                </ol>
+                <p>Откуда файлы придут быстрее — оттуда лаунчер их и заберет. Это как если бы за пиццей поехали сразу два курьера из разных мест: вы получите её от того, кто приедет первым!</p>
+            </div>
+
+            <div class="section-title">Преимущества для вас</div>
+            
+            <div class="info-grid">
+                <div class="info-card card-blue">
+                    <i class="fas fa-bolt card-icon-big" style="color: #1976d2;"></i>
+                    <h3>Локальное ускорение (LAN)</h3>
+                    <p>Если вы занимаетесь вместе с другими учениками в одном классе или помещении, лаунчер мгновенно обнаружит их и скачает файлы по локальной сети. Это в десятки раз быстрее любого интернета.</p>
+                </div>
+
+                <div class="info-card card-green">
+                    <i class="fas fa-shield-alt card-icon-big" style="color: #2e7d32;"></i>
+                    <h3>Полная безопасность</h3>
+                    <p>Каждый кусочек файла проверяется на ошибки и вирусы. Подменить файл или прислать «битые» данные невозможно — лаунчер просто их не примет, пока не убедится в их подлинности.</p>
+                </div>
+
+                <div class="info-card card-purple">
+                    <i class="fas fa-microchip card-icon-big" style="color: #7b1fa2;"></i>
+                    <h3>Без зависаний</h3>
+                    <p>Лаунчер следит за тем, чтобы процесс загрузки не нагружал ваш компьютер слишком сильно. Вы сможете спокойно заниматься своими делами, пока всё необходимое скачивается.</p>
+                </div>
+
+                <div class="info-card card-orange">
+                    <i class="fas fa-tachometer-alt card-icon-big" style="color: #e65100;"></i>
+                    <h3>Умная подстройка</h3>
+                    <p>Система сама понимает, насколько быстрый у вас интернет. Если ваша сеть перегружена, лаунчер снизит свою активность, чтобы не мешать вашей работе.</p>
+                </div>
+
+                <div class="info-card card-red">
+                    <i class="fas fa-globe card-icon-big" style="color: #c62828;"></i>
+                    <h3>Доступность всегда</h3>
+                    <p>Даже если основные сервера будут временно недоступны или интернет будет сильно ограничен, вы всё равно сможете получить файлы от других учеников.</p>
+                </div>
+
+                <div class="info-card card-cyan">
+                    <i class="fas fa-user-secret card-icon-big" style="color: #00838f;"></i>
+                    <h3>Анонимность</h3>
+                    <p>Специальный режим защиты позволяет скрыть ваш IP-адрес от сторонних систем, обеспечивая максимальную приватность во время учебы.</p>
+                </div>
+            </div>
+
+            <div class="section-title">Почему это включено по умолчанию?</div>
+            <div class="step-box" style="border-left: 5px solid #4285F4;">
+                <p>Технология сейчас находится на <b>тестовом этапе</b> и создает децентрализованную сеть. Для её полноценной работы и «неконтролируемого развертывания» нужно большое количество устройств одновременно.</p>
+                <p>То есть «на старте», если участников мало, магии не случится. Поэтому нам важно запустить её массово, чтобы сеть стала устойчивой.</p>
+            </div>
+
+            <div class="section-title">Важные нюансы</div>
+            
+            <div class="info-grid">
+                <div class="info-card">
+                    <i class="fas fa-wifi card-icon-big"></i>
+                    <h3>Запросы сети</h3>
+                    <p>При первом запуске появится стандартный запрос Windows на сетевое взаимодействие — это необходимо для работы протокола.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-bug card-icon-big"></i>
+                    <h3>Антивирусы</h3>
+                    <p>На этапе развертывания софт может вызвать подозрения у антивирусов. Это классическая ситуация для новых P2P-решений.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-sliders-h card-icon-big"></i>
+                    <h3>Профили железа</h3>
+                    <p>В настройках можно выбрать профиль: <b>LOW</b> (отключает раздачу), <b>MID</b> или <b>HIGH</b>. Это позволяет настроить лаунчер под мощность вашего ПК.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-check-double card-icon-big"></i>
+                    <h3>Надежное сохранение</h3>
+                    <p>Файлы сначала качаются в специальное временное место и попадают в систему только после полной проверки. Это исключает риск того, что данные «сломаются» при обрыве интернета.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-robot card-icon-big"></i>
+                    <h3>Автоматический выбор</h3>
+                    <p>Лаунчер сам понимает, насколько мощный у вас компьютер. Он автоматически подберет такие настройки, чтобы работа протокола никак не влияла на скорость системы и не мешала вам заниматься.</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-code card-icon-big"></i>
+                    <h3>Честный код</h3>
+                    <p>Весь код программы открыт. Любой разбирающийся человек может проверить, что в ней нет ничего лишнего и она работает именно так, как заявлено.</p>
+                </div>
+            </div>
+
+            <div class="section-title">Как отключить?</div>
+            <p style="margin-bottom: 30px;">Если вы принципиально против или заметили негативные эффекты — всё отключается в один клик в настройках:</p>
+            
+            <div class="step-box">
+                <span class="setting-path">Настройки → Доставка → Разрешить раздачу файлов → Выключить</span>
+            </div>
+
+            <p style="margin-top: 50px; font-size: 0.9rem; color: #888;">
+                Система обязана адаптироваться, поэтому любые проблемы скорее всего являются багами, о которых стоит сообщить.
+            </p>
+
+        </div>
+    </main>
+
+    <footer class="footer" id="footer" style="margin-top: 80px;">
+        <div class="footer-left">
+            <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
+            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
+            <span>2026</span><br><br>
+            CC BY-SA
+        </div>
+        <div class="footer-right">
+            <label class="theme-switcher" for="checkbox">
+                <input checked="checked" id="checkbox" type="checkbox">
+                <span class="slider round"></span>
+            </label>
+        </div>
+    </footer>
+
+    <script src="files/wiki/theme.js"></script>
+</body>
+
+</html>
