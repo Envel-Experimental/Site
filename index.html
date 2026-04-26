@@ -142,9 +142,9 @@
 
             <div id="version-toggle-section" class="version-toggle-container">
                 <div class="version-toggle">
-                    <input type="radio" id="stable" name="version" value="stable" checked>
+                    <input type="radio" id="stable" name="version" value="stable">
                     <label for="stable">Стабильная</label>
-                    <input type="radio" id="latest" name="version" value="latest">
+                    <input type="radio" id="latest" name="version" value="latest" checked>
                     <label for="latest">Новейшая</label>
                 </div>
             </div>
@@ -195,7 +195,7 @@
         let cachedStableLinks = null;
         let cachedLatestLinks = null;
 
-        async function loadDownloadLinks(type = 'stable') {
+        async function loadDownloadLinks(type = 'latest') {
             if (type === 'stable') {
                 if (cachedStableLinks) return cachedStableLinks;
                 try {
@@ -338,7 +338,7 @@
             osInfoElement.innerHTML = `Твоя система: <b>${os.name}</b>`;
 
             // Загрузка сохраненного выбора или по умолчанию стабильная
-            const savedVersion = localStorage.getItem('launcher-version-type') || 'stable';
+            const savedVersion = localStorage.getItem('launcher-version-type') || 'latest';
             const toggleInput = document.getElementById(savedVersion);
             if (toggleInput) toggleInput.checked = true;
 
