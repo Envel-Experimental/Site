@@ -389,7 +389,19 @@
 
                 if (currentReleaseData) {
                     releaseBox.style.display = 'block';
-                    versionDisplay.textContent = currentReleaseData.name || currentReleaseData.tag_name;
+                    
+                    let releaseName = currentReleaseData.name || currentReleaseData.tag_name;
+                    
+                    // Перевод названий релизов
+                    if (releaseName.includes('Prerelease build from master STABLE')) {
+                        releaseName = 'Плавающий релиз';
+                    } else if (releaseName.includes('Release build')) {
+                        releaseName = 'Стабильный релиз';
+                    } else if (releaseName.includes('Latest build')) {
+                        releaseName = 'Последняя сборка';
+                    }
+
+                    versionDisplay.textContent = releaseName;
                     renderAssets();
                 }
             } catch (error) {
@@ -416,6 +428,74 @@
             return 'fas fa-file';
         }
 
+        function getAssetDisplayData(name) {
+            const n = name.toLowerCase();
+            let title = name;
+            let desc = "";
+            let badge = "";
+
+            // Windows
+            if (n.includes('.exe') || n.includes('.msi')) {
+                if (n.includes('arm64')) {
+                    title = "Windows (ARM64)";
+                    desc = "Для современных планшетов и ноутбуков на процессорах ARM";
+                    badge = "ARM64";
+                } else if (n.includes('x64')) {
+                    title = "Windows (64-bit)";
+                    desc = "Стандартная версия для большинства ПК";
+                    badge = "x64";
+                } else if (n.includes('setup') && !n.includes('x64') && !n.includes('arm64')) {
+                    title = "Windows (Универсальный)";
+                    desc = "Установщик, который сам выберет нужную версию";
+                    badge = "Universal";
+                } else if (!n.includes('setup')) {
+                    title = "Windows (Портативный)";
+                    desc = "Работает без установки, просто запустите файл";
+                    badge = "Portable";
+                }
+            }
+            // macOS
+            else if (n.includes('.dmg') || n.includes('.pkg')) {
+                if (n.includes('arm64')) {
+                    title = "macOS (Apple Silicon)";
+                    desc = "Для Mac с процессорами M1, M2, M3 и новее";
+                    badge = "M1/M2/M3";
+                } else if (n.includes('x64')) {
+                    title = "macOS (Intel)";
+                    desc = "Для старых моделей Mac на базе Intel";
+                    badge = "Intel";
+                } else if (n.includes('universal')) {
+                    title = "macOS (Универсальный)";
+                    desc = "Работает на любых моделях Mac";
+                    badge = "Universal";
+                }
+            }
+            // Linux
+            else if (n.includes('.deb')) {
+                title = "Linux (Debian/Ubuntu)";
+                desc = "Для систем на базе Debian, таких как Ubuntu, Mint, Kali";
+                badge = "DEB";
+            } else if (n.includes('.rpm')) {
+                title = "Linux (Fedora/RedHat)";
+                desc = "Для систем на базе RedHat, таких как Fedora, CentOS";
+                badge = "RPM";
+            } else if (n.includes('.appimage')) {
+                title = "Linux (AppImage)";
+                desc = "Универсальный формат, работает на большинстве дистрибутивов";
+                badge = "AppImage";
+            } else if (n.includes('.snap')) {
+                title = "Linux (Snap)";
+                desc = "Пакет для Snap Store";
+                badge = "Snap";
+            } else if (n.includes('.tar.gz')) {
+                title = "Linux (Архив)";
+                desc = "Распакуйте и запустите вручную";
+                badge = "Archive";
+            }
+
+            return { title, desc, badge };
+        }
+
         function renderAssets() {
             const container = document.getElementById('asset-container');
             if (!currentReleaseData) return;
@@ -432,7 +512,7 @@
                 // Фильтрация
                 assets = assets.filter(asset => {
                     const name = asset.name.toLowerCase();
-                    const isTechnical = name.includes('.blockmap') || name.includes('.yml') || name === 'elevate.exe' || name === 'app-update.yml';
+                    const isTechnical = name.includes('.blockmap') || name.includes('.yml') || name === 'elevate.exe' || name === 'app-update.yml' || name.includes('.yml');
                     
                     if (currentPlatform === 'windows') {
                         return (name.includes('.exe') || name.includes('.msi')) && !isTechnical;
@@ -447,30 +527,70 @@
                 });
             }
 
+            // Сортировка по популярности
+            assets.sort((a, b) => {
+                const nameA = a.name.toLowerCase();
+                const nameB = b.name.toLowerCase();
+                
+                function getWeight(name) {
+                    // Windows
+                    if (currentPlatform === 'windows') {
+                        if (name.includes('x64')) return 1;
+                        if (name.includes('setup') && !name.includes('arm64')) return 2;
+                        if (!name.includes('setup')) return 3; // Portable
+                        if (name.includes('arm64')) return 4;
+                    }
+                    // macOS
+                    if (currentPlatform === 'macos') {
+                        if (name.includes('arm64')) return 1;
+                        if (name.includes('universal')) return 2;
+                        if (name.includes('x64')) return 3;
+                    }
+                    // Linux
+                    if (currentPlatform === 'linux') {
+                        if (name.includes('.appimage')) return 1;
+                        if (name.includes('.deb')) return 2;
+                        if (name.includes('.rpm')) return 3;
+                        if (name.includes('.snap')) return 4;
+                        if (name.includes('.tar.gz')) return 5;
+                    }
+                    return 99;
+                }
+                
+                return getWeight(nameA) - getWeight(nameB);
+            });
+
             if (assets.length === 0) {
                 container.innerHTML = '<div class="empty-state"><i class="fas fa-folder-open"></i> Файлы не найдены для этой платформы</div>';
                 return;
             }
 
-            container.innerHTML = assets.map(asset => `
-                <div class="asset-item">
-                    <div class="asset-icon">
-                        <i class="${getFileIcon(asset.name)}"></i>
-                    </div>
-                    <div class="asset-info">
-                        <div class="asset-name">${asset.name}</div>
-                        <div class="asset-meta">
-                            ${asset.size ? `<span class="asset-size"><i class="fas fa-hdd"></i> ${formatSize(asset.size)}</span>` : ''}
-                            ${asset.download_count !== undefined ? `<span><i class="fas fa-download"></i> ${asset.download_count}</span>` : ''}
+            container.innerHTML = assets.map(asset => {
+                const display = getAssetDisplayData(asset.name);
+                return `
+                    <div class="asset-item">
+                        <div class="asset-icon">
+                            <i class="${getFileIcon(asset.name)}"></i>
+                        </div>
+                        <div class="asset-info">
+                            <div class="asset-name">
+                                ${display.title}
+                                ${display.badge ? `<span style="font-size: 0.7rem; background: rgba(66, 133, 244, 0.1); color: #4285F4; padding: 2px 8px; border-radius: 6px; margin-left: 8px; vertical-align: middle;">${display.badge}</span>` : ''}
+                            </div>
+                            <div style="font-size: 0.9rem; color: #666; margin-bottom: 5px;">${display.desc || asset.name}</div>
+                            <div class="asset-meta">
+                                ${asset.size ? `<span class="asset-size"><i class="fas fa-hdd"></i> ${formatSize(asset.size)}</span>` : ''}
+                                ${asset.download_count !== undefined ? `<span><i class="fas fa-download"></i> ${asset.download_count}</span>` : ''}
+                            </div>
+                        </div>
+                        <div class="asset-actions">
+                            <a href="${asset.browser_download_url}" class="download-btn">
+                                <i class="fas fa-cloud-download-alt"></i> Скачать
+                            </a>
                         </div>
                     </div>
-                    <div class="asset-actions">
-                        <a href="${asset.browser_download_url}" class="download-btn">
-                            <i class="fas fa-cloud-download-alt"></i> Скачать
-                        </a>
-                    </div>
-                </div>
-            `).join('');
+                `;
+            }).join('');
         }
 
         // Event Listeners
