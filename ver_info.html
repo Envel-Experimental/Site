@@ -4,9 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ФЛАУНЧЕР - Инструкция по установке на Windows</title>
-    <link rel="stylesheet" href="files/wiki/style.css">
-    <link rel="stylesheet" href="files/wiki/main.css">
+    <title>Типы версий: Стабильная vs Плавающая | ФЛАУНЧЕР</title>
+    <link
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📚</text></svg>"
+        rel="icon">
+    <link href="files/wiki/style.css" rel="stylesheet">
+    <link href="files/wiki/main.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .concept-card {
+            background: rgba(66, 133, 244, 0.05);
+            border-radius: 24px;
+            padding: 40px;
+            margin: 40px 0;
+            text-align: left;
+        }
+
+        .version-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .v-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            border: 1px solid #eee;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+            display: flex;
+            flex-direction: column;
+        }
+
+        [theme="dark"] .v-box {
+            background: #1e1e1e;
+            border-color: #333;
+        }
+
+        .v-box h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #4285F4;
+        }
+
+        .v-box p {
+            line-height: 1.6;
+            color: #555;
+            flex-grow: 1;
+        }
+
+        [theme="dark"] .v-box p {
+            color: #aaa;
+        }
+
+        .v-icon {
+            font-size: 1.8rem;
+        }
+
+        .instruction-img {
+            max-width: 100%;
+            border-radius: 24px;
+            border: 2px solid #eee;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin: 30px 0;
+        }
+
+        [theme="dark"] .instruction-img {
+            border-color: #333;
+        }
+
+        .highlight-text {
+            color: #4285F4;
+            font-weight: 700;
+        }
+
+        .v-box ul {
+            padding-left: 18px;
+            margin-top: 10px;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .version-comparison {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -14,30 +103,80 @@
         <nav class="menu menu-simplified">
             <div class="menu-flex-container">
                 <a class="menu-logo" href="index.html">
-                    <span>ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
+                    <span style="margin-left: 10px;">ФЛАУНЧЕР<span class="tree-emoji">🌳</span> ПОМОЩЬ</span>
                 </a>
             </div>
             <div class="menu-simplified-right">
-                <a class="d-button button-black" href="help.html" style="margin-right: 10px;">Помощь</a>
+                <a class="d-button button-black" href="help.html">Назад к помощи</a>
             </div>
         </nav>
 
         <div class="content doc">
-            <h2>💻 Руководство по смене версий / курсов</h2>
+            <h2 class="cent" style="margin-top: 50px;">Как сменить курс (версию) в лаунчере?</h2>
 
-            <img src="files/images/launcher/2.webp">
+            <div style="text-align: center; margin-top: 30px;">
+                <p style="font-size: 1.1rem; color: #666; margin-bottom: 20px;">Нажмите на шестерёнку (настройки) и
+                    выберите нужную ветку обновлений:</p>
+                <img src="files/images/launcher/2.webp" class="instruction-img">
+            </div>
+
+            <hr style="border: none; border-top: 1px solid #eee; margin: 60px 0;">
+
+            <h2 class="cent">В чем разница между стабильной и новейшей версиями?</h2>
+            <p class="cent" style="font-size: 1.2rem; color: #666; max-width: 800px; margin: 20px auto;">
+                Мы предлагаем два подхода к обновлениям. Выбор зависит от того, что вам важнее: мгновенный доступ к новому или привычный старый интерфейс.
+            </p>
+
+            <div class="version-comparison">
+                <div class="v-box">
+                    <h3><i class="fas fa-rocket v-icon"></i> Плавающая (Новейшая)</h3>
+                    <p>
+                        <span class="highlight-text">Рекомендуемый выбор.</span> 
+                        Это актуальная версия, в которую мгновенно попадают все наши новые идеи и наработки сразу после тестирования.
+                        <br><br>
+                        <strong>Особенности:</strong>
+                        <ul>
+                            <li><b>Оперативность:</b> Получайте все улучшения и исправления сразу, не дожидаясь общего релиза.</li>
+                            <li><b>Актуальность:</b> Самая современная версия лаунчера со всеми последними изменениями.</li>
+                            <li><b>Безопасность:</b> Любые найденные ошибки и уязвимости закрываются в этой версии максимально быстро.</li>
+                            <li><b>Новые возможности:</b> Весь новый функционал нашего сервиса появляется здесь в первую очередь.</li>
+                        </ul>
+                    </p>
+                </div>
+
+                <div class="v-box" style="opacity: 0.85;">
+                    <h3><i class="fas fa-shield-alt v-icon"></i> Стабильная (Stable)</h3>
+                    <p>
+                        Классический вариант для тех, кто не любит любые изменения.
+                        <br><br>
+                        <strong>Особенности:</strong>
+                        <ul>
+                            <li><b>Проверено временем:</b> Версия, которая была признана «нормальной» несколько месяцев назад.</li>
+                            <li><b>Устаревание:</b> Эта ветка может отставать от актуальной на 2-3 месяца и более.</li>
+                            <li><b>Известные проблемы:</b> В ней могут оставаться баги и уязвимости, которые уже давно исправлены в новейшей версии.</li>
+                            <li><b>Массовость:</b> Была установлена у большинства клиентов на протяжении долгого времени.</li>
+                            <li><b>Консерватизм:</b> Подходит только тем, кто боится любых обновлений, даже если они полезны.</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+
+            <div class="concept-card">
+                <h3>Что в итоге выбрать?</h3>
+                <p>
+                    Мы рекомендуем использовать <strong>Плавающий релиз</strong> (Новейшую версию). Она быстрее, безопаснее и содержит всё то, над чем мы работаем прямо сейчас. 
+                    <br><br>
+                    Переходите на <strong>Стабильную</strong> только в том случае, если на новейшей версии у вас возникают технические проблемы, мешающие работе.
+                </p>
+            </div>
         </div>
-
-
-
     </main>
 
     <footer class="footer" id="footer">
         <div class="footer-left">
             <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
             <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
-            <span>2026</span><br><br>
-            CC BY-SA
+            <span>2026</span>
         </div>
         <div class="footer-right">
             <label class="theme-switcher" for="checkbox">

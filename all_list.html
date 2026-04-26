@@ -71,7 +71,7 @@
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             font-weight: 600;
             white-space: nowrap;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
         }
 
         [theme="dark"] .platform-item {
@@ -102,7 +102,7 @@
             border-radius: 24px;
             border: 1px solid #eee;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03);
             animation: fadeIn 0.5s ease;
         }
 
@@ -112,8 +112,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .asset-item {
@@ -269,10 +276,12 @@
                 grid-template-columns: auto 1fr;
                 padding: 20px;
             }
+
             .asset-actions {
                 grid-column: span 2;
                 margin-top: 10px;
             }
+
             .platform-strip {
                 justify-content: flex-start;
             }
@@ -295,7 +304,7 @@
 
         <div class="content doc">
             <h2 class="cent">Найди свою версию</h2>
-            
+
             <div id="version-toggle-section" class="version-toggle-container">
                 <div class="version-toggle">
                     <input type="radio" id="stable" name="version" value="stable">
@@ -360,19 +369,19 @@
             const assetContainer = document.getElementById('asset-container');
             const releaseBox = document.getElementById('release-info-box');
             const versionDisplay = document.getElementById('version-display');
-            
+
             assetContainer.innerHTML = '<div class="empty-state"><i class="fas fa-circle-notch fa-spin"></i> Загрузка...</div>';
-            
+
             try {
                 if (type === 'stable') {
                     // Для стабильной можем брать из downloadLinks.json или искать по тегу
                     const response = await fetch('downloadLinks.json');
                     const links = await response.json();
-                    
+
                     // Пытаемся найти тег в ссылке
                     const tagMatch = links.windows.match(/releases\/download\/(.*?)\//);
                     const tagName = tagMatch ? tagMatch[1] : null;
-                    
+
                     if (tagName) {
                         const ghResponse = await fetch(`https://api.github.com/repos/Envel-Experimental/HeliosLauncher/releases/tags/${tagName}`);
                         currentReleaseData = await ghResponse.json();
@@ -389,9 +398,9 @@
 
                 if (currentReleaseData) {
                     releaseBox.style.display = 'block';
-                    
+
                     let releaseName = currentReleaseData.name || currentReleaseData.tag_name;
-                    
+
                     // Перевод названий релизов
                     if (releaseName.includes('Prerelease build from master STABLE')) {
                         releaseName = 'Плавающий релиз';
@@ -501,7 +510,7 @@
             if (!currentReleaseData) return;
 
             let assets = [...currentReleaseData.assets];
-            
+
             // Добавляем исходники
             if (currentPlatform === 'source') {
                 assets = [
@@ -513,7 +522,7 @@
                 assets = assets.filter(asset => {
                     const name = asset.name.toLowerCase();
                     const isTechnical = name.includes('.blockmap') || name.includes('.yml') || name === 'elevate.exe' || name === 'app-update.yml' || name.includes('.yml');
-                    
+
                     if (currentPlatform === 'windows') {
                         return (name.includes('.exe') || name.includes('.msi')) && !isTechnical;
                     }
@@ -531,7 +540,7 @@
             assets.sort((a, b) => {
                 const nameA = a.name.toLowerCase();
                 const nameB = b.name.toLowerCase();
-                
+
                 function getWeight(name) {
                     // Windows
                     if (currentPlatform === 'windows') {
@@ -556,7 +565,7 @@
                     }
                     return 99;
                 }
-                
+
                 return getWeight(nameA) - getWeight(nameB);
             });
 
@@ -597,10 +606,10 @@
         document.getElementById('platform-picker').addEventListener('click', (e) => {
             const item = e.target.closest('.platform-item');
             if (!item) return;
-            
+
             document.querySelectorAll('.platform-item').forEach(p => p.classList.remove('active'));
             item.classList.add('active');
-            
+
             currentPlatform = item.dataset.platform;
             renderAssets();
         });
@@ -617,7 +626,7 @@
             const savedVersion = localStorage.getItem('launcher-version-type') || 'latest';
             const toggleInput = document.getElementById(savedVersion);
             if (toggleInput) toggleInput.checked = true;
-            
+
             fetchAllReleases(savedVersion);
         });
     </script>
