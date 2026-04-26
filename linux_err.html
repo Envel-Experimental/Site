@@ -210,26 +210,26 @@
 
             <div class="step-card card-orange">
                 <div class="card-title" style="color: #e65100;">
-                    <i class="fab fa-java"></i> Установка Java 21
+                    <i class="fab fa-java"></i> Установка Java 17 и 21
                 </div>
-                <p>Без Java лаунчер не запустится. Скопируйте команду для своего дистрибутива:</p>
+                <p>Обычно лаунчер <b>скачивает всё сам</b>, но если возникли проблемы — установите Java вручную:</p>
 
                 <div style="margin-top: 20px;">
                     <h4>Ubuntu / Debian / Mint</h4>
                     <div class="code-block">
-                        <span id="cmd-ubuntu">sudo apt install openjdk-21-jdk</span>
+                        <span id="cmd-ubuntu">sudo apt install openjdk-17-jdk openjdk-21-jdk</span>
                         <button class="copy-btn" onclick="copyText('cmd-ubuntu')">Копировать</button>
                     </div>
 
                     <h4>Fedora / CentOS</h4>
                     <div class="code-block">
-                        <span id="cmd-fedora">sudo dnf install java-21-openjdk</span>
+                        <span id="cmd-fedora">sudo dnf install java-17-openjdk java-21-openjdk</span>
                         <button class="copy-btn" onclick="copyText('cmd-fedora')">Копировать</button>
                     </div>
 
                     <h4>Arch Linux / Manjaro</h4>
                     <div class="code-block">
-                        <span id="cmd-arch">sudo pacman -S jdk21-openjdk</span>
+                        <span id="cmd-arch">sudo pacman -S jdk17-openjdk jdk21-openjdk</span>
                         <button class="copy-btn" onclick="copyText('cmd-arch')">Копировать</button>
                     </div>
                 </div>
