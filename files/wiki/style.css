@@ -182,21 +182,27 @@ html[theme="dark"] .menu-logo .tree-emoji {
 
 .d-button {
     display: inline-block;
-    padding: 15px 18px;
-    box-sizing: border-box;
     text-decoration: none;
-    border-radius: var(--button-border-radius);
-    background-color: var(--button-bg-color);
-    border: var(--button-border);
-    color: var(--button-color);
-    text-align: center;
+    padding: 12px 28px;
+    border-radius: 12px;
+    font-weight: 800;
+    color: white;
+    background: #000;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    line-height: 1.2;
+    transition: all 0.2s ease;
     cursor: pointer;
-    line-height: 1em;
-    font-weight: 500;
 }
 
-.menu-simplified-right .d-button.button-black:hover {
-    color: gray;
+.d-button:hover {
+    opacity: 0.8;
+    transform: translateY(-2px);
+}
+
+[theme="dark"] .d-button {
+    background: #fff;
+    color: #000;
 }
 
 
