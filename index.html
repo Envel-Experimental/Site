@@ -210,9 +210,10 @@
                     const match = cachedStableLinks.windows.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
                     if (match) cachedStableLinks.version = match[1];
 
-                    // Пытаемся получить хэш из GitHub для стабильной версии
+                        // Пытаемся получить хэш из GitHub для стабильной версии
                     try {
-                        const tagMatch = cachedStableLinks.windows.match(/releases\/download\/(.*?)\//);
+                        const tagSource = cachedStableLinks.all || cachedStableLinks.windows;
+                        const tagMatch = tagSource ? tagSource.match(/releases\/(?:tag|download)\/(.*?)(?:\/|$)/) : null;
                         const tagName = tagMatch ? tagMatch[1] : null;
 
                         if (tagName) {

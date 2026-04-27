@@ -384,7 +384,8 @@
                     const links = await response.json();
 
                     // Пытаемся найти тег в ссылке
-                    const tagMatch = links.windows.match(/releases\/download\/(.*?)\//);
+                    const tagSource = links.all || links.windows;
+                    const tagMatch = tagSource ? tagSource.match(/releases\/(?:tag|download)\/(.*?)(?:\/|$)/) : null;
                     const tagName = tagMatch ? tagMatch[1] : null;
 
                     if (tagName) {
