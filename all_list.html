@@ -394,6 +394,9 @@
                     } else {
                         // Фолбэк если не нашли тег
                         currentReleaseData = { assets: [], tag_name: 'Stable', html_url: '#' };
+                        // Пытаемся извлечь версию из ссылки в JSON
+                        const vMatch = links.windows.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
+                        if (vMatch) currentReleaseData.version_fallback = vMatch[1];
                     }
                 } else {
                     const response = await fetch('https://api.github.com/repos/Envel-Experimental/HeliosLauncher/releases');
@@ -416,7 +419,31 @@
                         releaseName = 'Последняя сборка';
                     }
 
-                    versionDisplay.textContent = releaseName;
+                    // Извлечение версии и хэша
+                    let versionStr = currentReleaseData.version_fallback || "";
+                    let hashStr = "";
+
+                    // Извлекаем версию из ассетов если она еще не найдена
+                    if (!versionStr && currentReleaseData.assets) {
+                        const versionAsset = currentReleaseData.assets.find(asset => 
+                            asset.name.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/)
+                        );
+                        if (versionAsset) {
+                            const vMatch = versionAsset.name.match(/setup-(.*)-(?:x64|arm64|universal|x86_64|amd64|armv7l|ia32)/);
+                            if (vMatch) versionStr = vMatch[1];
+                        }
+                    }
+
+                    // Извлекаем хэш из тела релиза
+                    const hashMatch = currentReleaseData.body ? currentReleaseData.body.match(/Commit.*?\s+([a-f0-9]{7,40})/i) : null;
+                    if (hashMatch) hashStr = hashMatch[1].substring(0, 7);
+
+                    let finalDisplay = releaseName;
+                    if (versionStr) finalDisplay += ` ${versionStr}`;
+                    if (hashStr) finalDisplay += ` (@${hashStr})`;
+                    
+                    versionDisplay.textContent = finalDisplay;
+
                     renderAssets();
                 }
             } catch (error) {
