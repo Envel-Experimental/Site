@@ -114,6 +114,8 @@
             font-size: 1.6rem;
             font-weight: 800;
             margin-bottom: 10px;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
         }
 
         .card-desc {
@@ -314,14 +316,45 @@
                 </div>
             </div>
 
+            <div class="section-header">⚖️ Юридическая информация</div>
+
+            <div class="help-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
+                <div class="help-card" style="min-height: 280px;">
+                    <i class="fas fa-file-contract card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title" style="font-size: 0.95rem; hyphens: auto;">Лицензия ПО</div>
+                    <div class="card-desc">Лицензионное соглашение и отказ от ответственности.</div>
+                    <a href="license.html" class="card-btn btn-info">Открыть</a>
+                </div>
+
+                <div class="help-card" style="min-height: 280px;">
+                    <i class="fas fa-shield-alt card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title" style="font-size: 0.95rem; hyphens: auto;">Правила</div>
+                    <div class="card-desc">Основные правила нашего сообщества для учеников.</div>
+                    <a href="rules.html" class="card-btn btn-info">Открыть</a>
+                </div>
+
+                <div class="help-card" style="min-height: 280px;">
+                    <i class="fas fa-gamepad card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title" style="font-size: 0.95rem; hyphens: auto;">Условия</div>
+                    <div class="card-desc">Условия пользования нашими игровыми серверами.</div>
+                    <a href="terms.html" class="card-btn btn-info">Открыть</a>
+                </div>
+
+                <div class="help-card" style="min-height: 280px;">
+                    <i class="fas fa-user-shield card-icon" style="color: #4285F4;"></i>
+                    <div class="card-title" style="font-size: 0.95rem; hyphens: auto;">Конфиденциальность</div>
+                    <div class="card-desc">Как мы обрабатываем и защищаем ваши данные.</div>
+                    <a href="privacy.html" class="card-btn btn-info">Открыть</a>
+                </div>
+            </div>
+
         </div>
     </main>
 
     <footer class="footer" id="footer" style="margin-top: 100px;">
         <div class="footer-left">
             <a href="index.html">f-launcher.ru</a> &nbsp;·&nbsp;
-            <a href="disclaimer.html">Отказ от ответственности</a> &nbsp;·&nbsp;
-            <span>2026</span><br><br>
+            <a href="license.html">Лицензия ПО</a> &nbsp;·&nbsp; <a href="rules.html">Правила</a> &nbsp;·&nbsp; <a href="terms.html">Условия</a> &nbsp;·&nbsp; <a href="privacy.html">Конфиденциальность</a> &nbsp;·&nbsp; <a href="help.html">Помощь</a> &nbsp;·&nbsp; <span>2026</span><br><br>
             CC BY-SA
         </div>
         <div class="footer-right">
